@@ -1,7 +1,7 @@
 # Projektdokumentation - StudyStreak
 
-> **Live-Demo:** _[wird nach Netlify-Deployment ergänzt – Platzhalter: `https://studystreak.netlify.app`]_
-> **Repository:** _[wird nach Push auf GitHub ergänzt]_
+> **Live-Demo:** https://clinquant-biscochitos-054278.netlify.app
+> **Repository:** https://github.com/dalipivaldrin/studystreak
 
 ## Inhaltsverzeichnis
 
