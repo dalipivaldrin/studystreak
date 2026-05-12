@@ -1,0 +1,20 @@
+import { getSessions, serialize } from '$lib/server/db.js';
+import { calculateStats } from '$lib/utils/gamification.js';
+
+export const load = async () => {
+	try {
+		const col = await getSessions();
+		const docs = await col.find({}).sort({ date: -1 }).toArray();
+		const sessions = serialize(docs);
+		const stats = calculateStats(sessions);
+		return { stats, dbReady: true };
+	} catch (err) {
+		console.error('[layout] DB-Fehler:', err.message);
+		// Graceful fallback wenn DB nicht erreichbar (z.B. fehlende ENV)
+		return {
+			stats: { totalSessions: 0, totalMinutes: 0, currentStreak: 0, longestStreak: 0, distinctDays: 0, distinctModules: 0, weekMinutes: 0, level: { level: 1, xpInLevel: 0, xpToNext: 300, progressPct: 0, xpPerLevel: 300 } },
+			dbReady: false,
+			dbError: err.message
+		};
+	}
+};
