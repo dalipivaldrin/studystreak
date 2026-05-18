@@ -3,7 +3,7 @@
 
 	const items = [
 		{ href: '/', icon: '🏠', label: 'Home' },
-		{ href: '/stats', icon: '📊', label: 'Stats' },
+		{ href: '/stats', icon: '📊', label: 'Statistik' },
 		{ href: '/badges', icon: '🏅', label: 'Badges' },
 		{ href: '/reflection', icon: '📝', label: 'Reflexion' }
 	];
