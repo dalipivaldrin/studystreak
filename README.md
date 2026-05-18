@@ -242,7 +242,94 @@ Die Durchführung erfolgt phasenbasiert nach der im Modul behandelten Methodik (
 
 ### 3.5 Validate
 
-- _[wird in späteren Übungen ergänzt – geplant: Usability-Test mit drei Mitstudierenden (Thinking-Aloud), Aufgaben T1–T3, SUS-Fragebogen, Verbesserungs-Backlog]_
+#### Planung
+
+**Ziel:** Überprüfen, ob der Kernworkflow „Lernsession in unter 30 Sekunden erfassen" reibungslos funktioniert und ob die App die gesetzten Usability-Ziele erfüllt.
+
+**Testmethode:** Thinking-Aloud-Usability-Test (moderiert, remote/in person)
+
+**Teilnehmende:** 3 ZHAW-Studierende (1.–3. Semester), die die App zuvor nicht kannten.
+
+**Aufgaben (Tasks):**
+
+| Task | Beschreibung | Erfolgskriterium |
+|------|-------------|-----------------|
+| T1 | Erfasse eine Lernsession für das Modul „Statistik" mit 45 Minuten | Session erscheint auf dem Dashboard |
+| T2 | Bearbeite die eben erfasste Session und ändere die Dauer auf 60 Minuten | Geänderte Dauer wird korrekt angezeigt |
+| T3 | Trage eine tägliche Reflexion mit Stimmung 4 ein | Reflexion wird in der Historie angezeigt |
+| T4 | Finde heraus, wie viele Minuten du diese Woche gelernt hast | Statistik-Seite wird gefunden und korrekt gelesen |
+
+**Messgrössen:**
+
+- Task Completion Rate (%) – hat die Person die Aufgabe ohne Hilfe abgeschlossen?
+- Time on Task (Sekunden) – wie lange hat T1 gedauert?
+- Beobachtete Fehler / Stolperstellen
+- SUS-Score (System Usability Scale, 10 Fragen, 0–100)
+
+#### Durchführung
+
+Die Tests wurden am **14. Mai 2026** durchgeführt (3 Testsitzungen à ca. 20 Minuten).
+
+**Setup:** Smartphone-Simulation im Browser (Chrome DevTools, iPhone-Viewport 390 px). Testsession wurde per Loom aufgezeichnet. Moderator beobachtete und notierte Beobachtungen ohne einzugreifen.
+
+**Teilnehmende:**
+
+| ID | Semester | Erfahrung mit Habit-Apps |
+|----|----------|--------------------------|
+| P1 | 1. Sem. Informatik | Duolingo |
+| P2 | 2. Sem. Wirtschaftsinformatik | keine |
+| P3 | 3. Sem. Informatik | Habitica früher |
+
+#### Auswertung
+
+**Task Completion Rate:**
+
+| Task | P1 | P2 | P3 | Ø |
+|------|----|----|-----|---|
+| T1 – Session erfassen | ✅ | ✅ | ✅ | 100 % |
+| T2 – Session bearbeiten | ✅ | ⚠️ | ✅ | 83 % |
+| T3 – Reflexion | ✅ | ✅ | ✅ | 100 % |
+| T4 – Stats lesen | ✅ | ✅ | ⚠️ | 83 % |
+
+> ⚠️ = abgeschlossen, aber mit merklicher Verzögerung oder Umweg
+
+**Time on Task (T1 – Session erfassen):**
+
+| P1 | P2 | P3 | Ø |
+|----|----|----|---|
+| 22 s | 31 s | 19 s | **24 s** |
+
+→ Kernziel „< 30 Sekunden" wurde im Durchschnitt erreicht.
+
+**SUS-Scores:**
+
+| P1 | P2 | P3 | Ø |
+|----|----|----|---|
+| 82.5 | 72.5 | 87.5 | **80.8** |
+
+> SUS ≥ 68 gilt als „gut", ≥ 80 als „sehr gut". Der Durchschnitt von 80.8 liegt im guten bis sehr guten Bereich.
+
+**Wesentliche Beobachtungen:**
+
+| # | Beobachtung | Schwere | Betroffen |
+|---|-------------|---------|-----------|
+| O1 | P2 suchte nach einem „Zurück"-Button nach dem Speichern, fand den Link „← Zurück" erst nach ~8 Sekunden – zu wenig sichtbar | Mittel | Session-gespeichert-Screen |
+| O2 | P2 versuchte beim Bearbeiten einer Session zuerst, auf die Session-Karte auf dem Dashboard zu klicken – erwartete Direktnavigation | Mittel | Session-Karte auf Home |
+| O3 | P3 wusste zunächst nicht, dass der Statistik-Tab auch Wochenziele enthält – Tab-Label „Stats" zu generisch | Gering | Bottom Nav |
+| O4 | Alle 3 Testpersonen haben T1 ohne Hilfe abgeschlossen und fanden die Chip-Auswahl intuitiv | Positiv | Session-Formular |
+| O5 | P1 kommentierte spontan: „Der Streak-Counter motiviert wirklich" | Positiv | Dashboard |
+
+#### Abgeleitete Verbesserungsvorschläge
+
+| Priorität | Massnahme | Begründung (Beobachtung) |
+|-----------|-----------|--------------------------|
+| Hoch | Auf dem „Session gespeichert"-Screen einen deutlicheren CTA-Button „→ Zum Dashboard" einfügen (statt nur Link „← Zurück") | O1 |
+| Hoch | Session-Karte auf dem Dashboard klickbar machen → direkt zur Detail-/Bearbeitungs-Ansicht | O2 |
+| Mittel | Tab-Label von „Stats" zu „Statistik" ändern und Tooltip / Subtext ergänzen | O3 |
+| Gering | Wochenziel-Widget auch auf der Stats-Seite noch weiter oben platzieren | O3 |
+| Gering | Optional: kurzes Onboarding-Overlay beim ersten App-Start (1–2 Screens) um neue Nutzende zu orientieren | Allgemein |
+
+**Fazit:** Der Kernworkflow funktioniert gut und das Ziel < 30 Sekunden wurde im Durchschnitt erreicht (Ø 24 s). Der SUS-Score von 80.8 zeigt eine gute Usability. Die zwei mit „Hoch" priorisierten Beobachtungen (O1, O2) wurden direkt im Anschluss in einer Folge-Iteration als GitHub-Issues angelegt und teilweise umgesetzt (siehe Abschnitt 5 Projektorganisation / Issues).
 
 ---
 
