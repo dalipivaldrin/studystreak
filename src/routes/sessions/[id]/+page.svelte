@@ -54,6 +54,7 @@
 	{#if $page.url.searchParams.get('created') === '1'}
 		<div class="alert alert-success">
 			<strong>🎉 Gespeichert!</strong> Deine Session ist erfasst.
+<div class="alert-cta"><a href="/" class="btn btn-primary">→ Zum Dashboard</a></div>
 		</div>
 	{/if}
 	{#if $page.url.searchParams.get('updated') === '1'}
