@@ -6,15 +6,21 @@
 	import { getModule } from '$lib/constants.js';
 
 	export let data;
-
 	$: sessions = data.sessions || [];
 
 	let range = 'woche'; // 'woche' | 'monat' | 'gesamt'
 
 	$: filteredSessions = filterByRange(sessions, range);
-	$: stats = calculateStats(filteredSessions);
-	$: daily = dailyMinutes(sessions, range === 'gesamt' ? 30 : range === 'monat' ? 30 : 7);
-	$: byModule = minutesByModule(sessions, range === 'gesamt' ? 365 : range === 'monat' ? 30 : 7);
+	// Stats für KPI-Karten: Streak & Level basieren IMMER auf allen Sessions
+	// (Streak ist tagebasiert, Level basiert auf gesamtem XP).
+	$: allStats = calculateStats(sessions);
+	$: rangeSessionCount = filteredSessions.length;
+
+	// Anzahl der Tage im aktuellen Range (für Chart & Modul-Aggregation)
+	$: rangeDays = range === 'gesamt' ? Math.max(30, daysSinceFirstSession(sessions)) : range === 'monat' ? 30 : 7;
+	$: daily = dailyMinutes(sessions, rangeDays);
+	$: byModule = minutesByModule(sessions, rangeDays);
+
 	$: totalRangeMinutes = filteredSessions.reduce((s, x) => s + (x.duration || 0), 0);
 	$: maxModMin = Math.max(1, ...byModule.map((m) => m.minutes));
 
@@ -25,6 +31,22 @@
 		else if (r === 'monat') cutoff.setDate(cutoff.getDate() - 29);
 		else return all;
 		return all.filter((s) => new Date(s.date) >= cutoff);
+	}
+
+	function daysSinceFirstSession(all) {
+		if (!all || all.length === 0) return 30;
+		const dates = all.map((s) => new Date(s.date).getTime());
+		const oldest = Math.min(...dates);
+		const today = new Date();
+		today.setHours(0, 0, 0, 0);
+		const diff = Math.ceil((today.getTime() - oldest) / (1000 * 60 * 60 * 24)) + 1;
+		return Math.max(30, Math.min(diff, 365));
+	}
+
+	function rangeLabel(r) {
+		if (r === 'woche') return 'diese Woche';
+		if (r === 'monat') return 'diesen Monat';
+		return 'gesamt';
 	}
 </script>
 
@@ -40,15 +62,15 @@
 	</div>
 
 	<div class="kpi-row">
-		<StatBadge icon="🔥" value={`${data.stats.currentStreak} ${data.stats.currentStreak === 1 ? 'Tag' : 'Tage'}`} label="Streak" />
-		<StatBadge icon="📚" value={filteredSessions.length} label={range === 'gesamt' ? 'Sessions' : `${range === 'woche' ? 'diese Woche' : 'diesen Monat'}`} />
-		<StatBadge icon="⭐" value={`Level ${data.stats.level.level}`} label="Lernender" />
+		<StatBadge icon="🔥" value={`${allStats.currentStreak} ${allStats.currentStreak === 1 ? 'Tag' : 'Tage'}`} label="Streak" />
+		<StatBadge icon="📚" value={rangeSessionCount} label={`Sessions ${rangeLabel(range)}`} />
+		<StatBadge icon="⭐" value={`Level ${allStats.level.level}`} label="Lernender" />
 	</div>
 
 	<div class="card mb-4">
 		<div class="flex-between mb-2">
 			<strong>Lernzeit</strong>
-			<span class="text-muted text-small">{formatMinutes(totalRangeMinutes)} gesamt</span>
+			<span class="text-muted text-small">{formatMinutes(totalRangeMinutes)} {rangeLabel(range)}</span>
 		</div>
 		{#if daily.length}
 			<BarChart data={daily} />
