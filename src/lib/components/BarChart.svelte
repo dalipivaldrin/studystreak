@@ -8,15 +8,10 @@
 <div class="bar-chart" style="--cols: {data.length}">
 	{#each data as d, i}
 		{@const pct = (d.minutes / max) * 100}
+		{@const showLabel = i % step === 0 || i === data.length - 1}
 		<div class="bar-col">
 			<div class="bar-fill" class:muted={d.minutes === 0} style="height: {pct}%" title={`${d.label}: ${d.minutes} min`}></div>
-			<div class="bar-label" class:bar-label-hidden={i % step !== 0 && i !== data.length - 1}>{d.label}</div>
+			<div class="bar-label" style:visibility={showLabel ? 'visible' : 'hidden'}>{d.label}</div>
 		</div>
 	{/each}
 </div>
-
-<style>
-	.bar-label-hidden {
-		visibility: hidden;
-	}
-</style>
