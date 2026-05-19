@@ -2,7 +2,6 @@
  * Gamification-Logik: Streak, Level, Stats und Badge-Auswertung.
  * Keine externen Abhängigkeiten – reine Berechnung über die Sessions-Liste.
  */
-
 import { BADGES, XP_PER_LEVEL } from '$lib/constants.js';
 
 /** Tagesschlüssel YYYY-MM-DD (für Streak-Berechnung) */
@@ -32,11 +31,9 @@ export function calculateStreak(sessions) {
 	if (!sessions || sessions.length === 0) {
 		return { current: 0, longest: 0 };
 	}
-
 	const days = new Set(sessions.map((s) => dayKey(s.date)));
 	const today = todayKey();
 	const yesterday = yesterdayKey();
-
 	// Current streak
 	let cursor = new Date();
 	if (!days.has(today)) {
@@ -46,20 +43,17 @@ export function calculateStreak(sessions) {
 		}
 		cursor.setDate(cursor.getDate() - 1);
 	}
-
 	let current = 0;
 	while (days.has(dayKey(cursor))) {
 		current++;
 		cursor.setDate(cursor.getDate() - 1);
 	}
-
 	return { current, longest: Math.max(current, calculateLongestStreak(days)) };
 }
 
 function calculateLongestStreak(daysSet) {
 	const sorted = Array.from(daysSet).sort();
 	if (sorted.length === 0) return 0;
-
 	let longest = 1;
 	let run = 1;
 	for (let i = 1; i < sorted.length; i++) {
@@ -93,13 +87,11 @@ export function calculateStats(sessions) {
 	const distinctDays = new Set(sessions.map((s) => dayKey(s.date))).size;
 	const distinctModules = new Set(sessions.map((s) => s.module)).size;
 	const level = calculateLevel(totalMinutes);
-
 	// Diese Woche (ab Montag)
 	const weekStart = startOfWeek(new Date());
 	const weekMinutes = sessions
 		.filter((s) => new Date(s.date) >= weekStart)
 		.reduce((sum, s) => sum + (s.duration || 0), 0);
-
 	return {
 		totalSessions,
 		totalMinutes,
@@ -137,7 +129,6 @@ export function dailyMinutes(sessions, days = 14) {
 	const result = [];
 	const today = new Date();
 	today.setHours(0, 0, 0, 0);
-
 	for (let i = days - 1; i >= 0; i--) {
 		const d = new Date(today);
 		d.setDate(today.getDate() - i);
@@ -154,12 +145,44 @@ export function dailyMinutes(sessions, days = 14) {
 	return result;
 }
 
+/** Wochen-Aggregate für Balkendiagramm (z.B. letzte 12 Wochen). */
+export function weeklyMinutes(sessions, weeks = 12) {
+	const result = [];
+	const start = startOfWeek(new Date());
+	for (let i = weeks - 1; i >= 0; i--) {
+		const weekStart = new Date(start);
+		weekStart.setDate(start.getDate() - i * 7);
+		const weekEnd = new Date(weekStart);
+		weekEnd.setDate(weekStart.getDate() + 7);
+		const minutes = sessions
+			.filter((s) => {
+				const d = new Date(s.date);
+				return d >= weekStart && d < weekEnd;
+			})
+			.reduce((sum, s) => sum + (s.duration || 0), 0);
+		result.push({
+			date: weekStart.toISOString().slice(0, 10),
+			label: `KW ${getWeekNumber(weekStart)}`,
+			minutes
+		});
+	}
+	return result;
+}
+
+/** ISO-Wochennummer (Mo–So). */
+export function getWeekNumber(d) {
+	const date = new Date(d);
+	date.setHours(0, 0, 0, 0);
+	date.setDate(date.getDate() + 4 - (date.getDay() || 7));
+	const yearStart = new Date(date.getFullYear(), 0, 1);
+	return Math.ceil(((date - yearStart) / 86400000 + 1) / 7);
+}
+
 /** Minuten pro Modul über die letzten N Tage. */
 export function minutesByModule(sessions, days = 30) {
 	const cutoff = new Date();
 	cutoff.setDate(cutoff.getDate() - days);
 	cutoff.setHours(0, 0, 0, 0);
-
 	const map = {};
 	for (const s of sessions) {
 		if (new Date(s.date) >= cutoff) {
