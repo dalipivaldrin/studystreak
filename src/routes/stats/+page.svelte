@@ -2,7 +2,7 @@
 	import StatBadge from '$lib/components/StatBadge.svelte';
 	import BarChart from '$lib/components/BarChart.svelte';
 	import SessionCard from '$lib/components/SessionCard.svelte';
-	import { calculateStats, dailyMinutes, minutesByModule, formatMinutes } from '$lib/utils/gamification.js';
+	import { calculateStats, dailyMinutes, weeklyMinutes, minutesByModule, formatMinutes } from '$lib/utils/gamification.js';
 	import { getModule } from '$lib/constants.js';
 
 	export let data;
@@ -16,10 +16,21 @@
 	$: allStats = calculateStats(sessions);
 	$: rangeSessionCount = filteredSessions.length;
 
-	// Anzahl der Tage im aktuellen Range (für Chart & Modul-Aggregation)
-	$: rangeDays = range === 'gesamt' ? Math.max(30, daysSinceFirstSession(sessions)) : range === 'monat' ? 30 : 7;
-	$: daily = dailyMinutes(sessions, rangeDays);
-	$: byModule = minutesByModule(sessions, rangeDays);
+	// Chart-Daten:
+	// - Woche: 7 Tages-Balken
+	// - Monat: 30 Tages-Balken (Labels werden ueber BarChart.labelEvery ausgeduennt)
+	// - Gesamt: 12 Wochen-Balken (KW xx)
+	$: chartData =
+		range === 'woche'
+			? dailyMinutes(sessions, 7)
+			: range === 'monat'
+				? dailyMinutes(sessions, 30)
+				: weeklyMinutes(sessions, 12);
+	$: chartLabelEvery = range === 'monat' ? 5 : range === 'gesamt' ? 2 : 1;
+
+	// Modul-Aggregation passt sich an den Range an
+	$: moduleDays = range === 'woche' ? 7 : range === 'monat' ? 30 : 365;
+	$: byModule = minutesByModule(sessions, moduleDays);
 
 	$: totalRangeMinutes = filteredSessions.reduce((s, x) => s + (x.duration || 0), 0);
 	$: maxModMin = Math.max(1, ...byModule.map((m) => m.minutes));
@@ -31,16 +42,6 @@
 		else if (r === 'monat') cutoff.setDate(cutoff.getDate() - 29);
 		else return all;
 		return all.filter((s) => new Date(s.date) >= cutoff);
-	}
-
-	function daysSinceFirstSession(all) {
-		if (!all || all.length === 0) return 30;
-		const dates = all.map((s) => new Date(s.date).getTime());
-		const oldest = Math.min(...dates);
-		const today = new Date();
-		today.setHours(0, 0, 0, 0);
-		const diff = Math.ceil((today.getTime() - oldest) / (1000 * 60 * 60 * 24)) + 1;
-		return Math.max(30, Math.min(diff, 365));
 	}
 
 	function rangeLabel(r) {
@@ -72,8 +73,8 @@
 			<strong>Lernzeit</strong>
 			<span class="text-muted text-small">{formatMinutes(totalRangeMinutes)} {rangeLabel(range)}</span>
 		</div>
-		{#if daily.length}
-			<BarChart data={daily} />
+		{#if chartData.length}
+			<BarChart data={chartData} labelEvery={chartLabelEvery} />
 		{:else}
 			<p class="text-muted text-center">Noch keine Daten.</p>
 		{/if}
