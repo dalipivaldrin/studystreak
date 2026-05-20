@@ -732,3 +732,77 @@ a:hover { text-decoration: underline; }
 	color: var(--c-primary);
 	margin-top: 4px;
 }
+
+/* ===== Bottom Nav – Responsive Fix ===== */
+/* Überschreibe die alten Bottom-Nav Styles für bessere Responsivität */
+.bottom-nav {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		transform: none;
+		width: 100%;
+		max-width: 100%;
+		background: var(--c-surface);
+		border-top: 1px solid var(--c-border);
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		padding: 6px 0 max(8px, env(safe-area-inset-bottom));
+		z-index: 20;
+		box-shadow: 0 -4px 12px rgba(0,0,0,0.04);
+}
+
+/* ===== Responsive Layout ===== */
+
+/* Mobile: max 480px – standard mobile view */
+@media (max-width: 480px) {
+		:root {
+					font-size: 15px;
+		}
+		.app-shell {
+					max-width: 100%;
+					padding-bottom: 70px;
+		}
+		.bottom-nav a {
+					font-size: 0.7rem;
+					padding: 4px 2px;
+		}
+		.bottom-nav .nav-icon {
+					font-size: 1.2rem;
+		}
+}
+
+/* Tablet: 481px – 1024px */
+@media (min-width: 481px) and (max-width: 1024px) {
+		.app-shell {
+					max-width: 720px;
+					margin: 0 auto;
+					padding-bottom: 80px;
+		}
+		.bottom-nav a {
+					font-size: 0.8rem;
+					padding: 6px 4px;
+		}
+}
+
+/* Desktop: ab 1025px */
+@media (min-width: 1025px) {
+		.app-shell {
+					max-width: 860px;
+					margin: 0 auto;
+					padding-bottom: 90px;
+		}
+		.bottom-nav {
+					max-width: 860px;
+					left: 50%;
+					right: auto;
+					transform: translateX(-50%);
+					border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+					border-left: 1px solid var(--c-border);
+					border-right: 1px solid var(--c-border);
+		}
+		.bottom-nav a {
+					font-size: 0.85rem;
+					padding: 8px 6px;
+		}
+}
