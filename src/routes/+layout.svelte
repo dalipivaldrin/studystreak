@@ -58,6 +58,7 @@
     display: flex;
     align-items: center;
     gap: 0.75rem;
+    width: 100%;
   }
 
   .header-user {
@@ -105,6 +106,7 @@
     border-radius: var(--radius-sm, 8px);
     font-size: 0.8rem;
     cursor: pointer;
+    flex-shrink: 0;
     transition: all 0.2s;
   }
 
