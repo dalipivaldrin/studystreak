@@ -18,15 +18,15 @@
 
 	// Chart-Daten:
 	// - Woche: 7 Tages-Balken
-	// - Monat: 30 Tages-Balken (Labels werden ueber BarChart.labelEvery ausgeduennt)
+	// - Monat: 5 Wochen-Balken (KW xx)
 	// - Gesamt: 12 Wochen-Balken (KW xx)
 	$: chartData =
 		range === 'woche'
 			? dailyMinutes(sessions, 7)
 			: range === 'monat'
-				? dailyMinutes(sessions, 30)
+				? weeklyMinutes(sessions, 5)
 				: weeklyMinutes(sessions, 12);
-	$: chartLabelEvery = range === 'monat' ? 5 : range === 'gesamt' ? 2 : 1;
+	$: chartLabelEvery = range === 'gesamt' ? 2 : 1;
 
 	// Modul-Aggregation passt sich an den Range an
 	$: moduleDays = range === 'woche' ? 7 : range === 'monat' ? 30 : 365;
