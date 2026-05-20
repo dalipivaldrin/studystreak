@@ -663,6 +663,13 @@ a:hover { text-decoration: underline; }
 	gap: var(--spacing-3);
 }
 
+/* Letztes Badge zentriert wenn ungerade Anzahl */
+.badge-card:last-child:nth-child(odd) {
+	grid-column: 1 / -1;
+	max-width: calc(50% - var(--spacing-3) / 2);
+	margin: 0 auto;
+}
+
 .badge-card {
 	background: var(--c-surface);
 	border-radius: var(--radius-md);
