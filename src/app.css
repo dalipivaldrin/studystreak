@@ -756,7 +756,7 @@ a:hover { text-decoration: underline; }
 
 /* Mobile: max 480px – standard mobile view */
 @media (max-width: 480px) {
-		:root {
+		html {
 					font-size: 15px;
 		}
 		.app-shell {
