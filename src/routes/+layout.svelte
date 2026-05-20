@@ -212,11 +212,6 @@
       padding-bottom: 0 !important;
     }
 
-    /* Auf Desktop: Bottom-Nav ausblenden, stattdessen Sidebar oder Top-Nav */
-    :global(.bottom-nav) {
-      display: none !important;
-    }
-
     /* Slot-Inhalt auf Desktop etwas Abstand geben */
     :global(.app-shell > :not(header):not(.bottom-nav)) {
       padding-top: 1rem;
