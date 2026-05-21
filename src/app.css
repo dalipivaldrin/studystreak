@@ -658,19 +658,20 @@ a:hover { text-decoration: underline; }
 
 /* ===== Badges-Galerie ===== */
 .badge-grid {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
+	display: flex;
+	flex-wrap: wrap;
 	gap: var(--spacing-3);
+	justify-content: center;
 }
 
-/* Letztes Badge zentriert wenn ungerade Anzahl */
+/* Letztes Badge zentriert wenn ungerade Anzahl – gleiche Grösse wie andere */
 .badge-card:last-child:nth-child(odd) {
-	grid-column: 1 / -1;
-	max-width: calc(50% - var(--spacing-3) / 2);
-	margin: 0 auto;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .badge-card {
+	flex: 0 0 calc(50% - var(--spacing-3) / 2);
 	background: var(--c-surface);
 	border-radius: var(--radius-md);
 	padding: var(--spacing-4);
