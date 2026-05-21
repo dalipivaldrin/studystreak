@@ -660,7 +660,7 @@ a:hover { text-decoration: underline; }
 .badge-grid {
 	display: flex;
 	flex-wrap: wrap;
-	gap: var(--spacing-3);
+	gap: var(--spacing-2);
 	justify-content: center;
 }
 
@@ -671,10 +671,10 @@ a:hover { text-decoration: underline; }
 }
 
 .badge-card {
-	flex: 0 0 calc(50% - var(--spacing-3) / 2);
+	flex: 0 0 calc(50% - var(--spacing-2) / 2);
 	background: var(--c-surface);
 	border-radius: var(--radius-md);
-	padding: var(--spacing-4);
+	padding: var(--spacing-2) var(--spacing-3);
 	text-align: center;
 	border: 1px solid var(--c-border);
 	box-shadow: var(--shadow-sm);
@@ -686,19 +686,19 @@ a:hover { text-decoration: underline; }
 }
 
 .badge-card .badge-icon {
-	font-size: 2.2rem;
-	margin-bottom: var(--spacing-2);
+	font-size: 1.6rem;
+	margin-bottom: var(--spacing-1);
 }
 
 .badge-card .badge-name {
 	font-weight: 700;
-	font-size: 0.95rem;
+	font-size: 0.82rem;
 }
 
 .badge-card .badge-desc {
-	font-size: 0.8rem;
+	font-size: 0.72rem;
 	color: var(--c-text-muted);
-	margin-top: 2px;
+	margin-top: 1px;
 }
 
 /* ===== Star rating ===== */
