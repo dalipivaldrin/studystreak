@@ -260,7 +260,7 @@ npm run dev
 - Ist die tägliche Reflexion intuitiv nutzbar?
 - Findet die Testperson die Wochenstatistik ohne Hilfe?
 
-**Vorgehen:** Moderierter Thinking-Aloud-Usability-Test, on-site. Testperson spielt Szenarien durch, Testleiter beobachtet ohne einzugreifen. Feedback-Grid zur Protokollierung.
+**Vorgehen:** Moderierter Thinking-Aloud-Usability-Test, on-site. Testperson spielt Szenarien durch, Testleiter beobachtet ohne einzugreifen. Feedback-Grid zur Protokollierung. → [Vollständiges Testskript & Feedback-Grid](docs/usability-test-skript.md)
 
 **Stichprobe:** 1 Testperson – Marko Vukcevic, ZHAW-Mitstudent (Informatik), kennt Habit-Tracking-Apps (Duolingo), hat StudyStreak vor dem Test nicht gesehen.
 
@@ -413,4 +413,4 @@ KI war hilfreich, um schnell ein konsistentes SvelteKit-Grundgerüst inkl. CSS-D
 - **Sketch-Dokumentation:** Abgabe Woche 9 – Crazy 8s & ausgearbeitete Skizze (Valdrin Dalipi, FS 2026)
 - **Prototyp:** Abgabe Woche 11 – SvelteKit + MongoDB Prototyp (Valdrin Dalipi, FS 2026)
 - **Screenshots:** Ablage unter `docs/screenshots/` im Repository
-- **Testskript & Materialien:** Feedback-Grid (Marko Vukcevic) – siehe Kap. 3.5
+- **Testskript & Materialien:** [docs/usability-test-skript.md](docs/usability-test-skript.md) – Vollständiges Testskript mit 6 Aufgaben, Feedback-Grid mit Beobachtungen von Marko Vukcevic
