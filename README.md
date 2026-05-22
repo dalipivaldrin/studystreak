@@ -312,9 +312,9 @@ npm run dev
 
 | Priorität | Massnahme | Begründung |
 |---|---|---|
-| **Hoch** | Session-Karte auf dem Dashboard klickbar machen → direkt zur Detail-/Bearbeitungs-Ansicht | T2: Testperson erwartete Direktnavigation |
-| **Hoch** | Auf dem „Session gespeichert"-Screen deutlicheren CTA-Button „→ Zum Dashboard" einfügen | Link „← Zurück" war zu wenig sichtbar |
-| **Mittel** | Tab-Label von „Stats" zu „Statistik" ändern | Tab-Bezeichnung war zu generisch |
+| **Hoch** ✅ | Session-Karte auf dem Dashboard klickbar machen → direkt zur Detail-/Bearbeitungs-Ansicht ([Issue #2](https://github.com/dalipivaldrin/studystreak/issues/2), umgesetzt) | T2: Testperson erwartete Direktnavigation |
+| **Hoch** ✅ | Auf dem „Session gespeichert"-Screen deutlicheren CTA-Button „→ Zum Dashboard" einfügen ([Issue #1](https://github.com/dalipivaldrin/studystreak/issues/1), umgesetzt) | Link „← Zurück" war zu wenig sichtbar |
+| **Mittel** ✅ | Tab-Label von „Stats" zu „Statistik" ändern ([Issue #3](https://github.com/dalipivaldrin/studystreak/issues/3), umgesetzt) | Tab-Bezeichnung war zu generisch |
 | **Gering** | Wochenziel-Widget auf der Stats-Seite weiter oben platzieren | Bessere Sichtbarkeit des Fortschritts |
 | **Gering** | Kurzes Onboarding-Overlay beim ersten App-Start | Allgemeine Orientierung für neue Nutzer |
 
@@ -356,7 +356,7 @@ Folgende Erweiterungen gehen über den geforderten Mindestumfang (1 Hauptworkflo
 - **Wo umgesetzt:**
   - Frontend: `src/routes/+page.svelte` (SessionCard als Link zu `/sessions/[id]`), `src/routes/sessions/[id]/+page.svelte` (Edit- und Delete-Formular)
 - **Referenz:** Kap. 3.4.1 (Home-Screen, Session-Detailansicht)
-- **Aus Evaluation abgeleitet?** **Ja** – Marko Vukcevic suchte direkt auf der Session-Karte nach einem Bearbeitungs-Button und fand keinen (T2). Issue wurde als GitHub Issue #1 angelegt und umgesetzt.
+- **Aus Evaluation abgeleitet?** **Ja** – Marko Vukcevic suchte direkt auf der Session-Karte nach einem Bearbeitungs-Button und fand keinen (T2). Angelegt als [GitHub Issue #2](https://github.com/dalipivaldrin/studystreak/issues/2), umgesetzt in `src/lib/components/SessionCard.svelte`.
 
 ### 4.5 Komplexe serverseitige Validierung
 
