@@ -1,6 +1,6 @@
 # Projektdokumentation - StudyStreak
 
-> **Live-Demo:** https://clinquant-biscochitos-054278.netlify.app
+> **Live-Demo:** https://clinquant-biscochitos-054278.netlify.app  
 > **Repository:** https://github.com/dalipivaldrin/studystreak
 
 ## Inhaltsverzeichnis
@@ -35,8 +35,6 @@
 - **Primäre Zielgruppe:** ZHAW-Studierende im 1.–3. Semester Informatik und Wirtschaftsinformatik, die mehrere Module parallel betreuen und ihren Lernfortschritt strukturieren möchten.
 - **Weitere Stakeholder:** Selbstlernende ausserhalb der Hochschule (Sprachkurse, Weiterbildung), die von Habit-Tracking profitieren.
 
----
-
 ## 2. Lösungsidee
 
 - **Kernfunktionalität:**
@@ -54,13 +52,11 @@
   - Keine Task-Management-App (StudyStreak denkt in Sessions, nicht in einzelnen Tasks)
 
 | Tool | Fokus | Schwäche für unsere Zielgruppe |
-|------|-------|-------------------------------|
+|---|---|---|
 | Notion | Sehr flexibler Workspace | Keine Lern-Spezialisierung, hohe Einstiegshürde |
 | Habitica | Allgemeines Habit-Tracking mit Gamification | Kein Fach- oder Modulbezug |
 | Forest / Flora | Live-Timer während des Lernens | Löst nicht das Reflektieren & Dokumentieren nach der Session |
-| **StudyStreak** | Retrospektives Logging mit Modulbezug | – |
-
----
+| **StudyStreak** | **Retrospektives Logging mit Modulbezug** | – |
 
 ## 3. Vorgehen & Artefakte
 
@@ -69,8 +65,8 @@ Die Durchführung erfolgt phasenbasiert nach der im Modul behandelten Methodik (
 ### 3.1 Understand & Define
 
 - **Zielgruppenverständnis:**
-  - Proto-Persona: Valdrin, 22 Jahre, Informatik-Student im 1. Semester, muss parallel mehrere Module betreuen. Lernt unregelmässig, vergisst oft was er wann gelernt hat. Nutzt bereits Apps wie Duolingo und schätzt den Streak-Mechanismus. Wünscht sich eine schnelle, nicht ablenkende Lösung.
-  - Recherche: Kurz-Interviews und Analyse existierender Tools (Notion, Habitica, Forest/Flora). Habit-Tracking-Apps sind besonders erfolgreich, wenn sie kurzfristige Belohnungen mit langfristigen Zielen kombinieren (Gamification-Literatur).
+  - *Proto-Persona:* Valdrin, 22 Jahre, Informatik-Student im 1. Semester, muss parallel mehrere Module betreuen. Lernt unregelmässig, vergisst oft was er wann gelernt hat. Nutzt bereits Apps wie Duolingo und schätzt den Streak-Mechanismus. Wünscht sich eine schnelle, nicht ablenkende Lösung.
+  - *Recherche:* Kurz-Interviews und Analyse existierender Tools (Notion, Habitica, Forest/Flora). Habit-Tracking-Apps sind besonders erfolgreich, wenn sie kurzfristige Belohnungen mit langfristigen Zielen kombinieren (Gamification-Literatur).
 - **Wesentliche Erkenntnisse:**
   - Studierende wollen eine möglichst schnelle Erfassung (< 30 Sekunden) – die App soll nicht während des Lernens stören
   - Sichtbarer Fortschritt (Streak, XP) erhöht die Motivation nachweislich
@@ -82,50 +78,54 @@ Die Durchführung erfolgt phasenbasiert nach der im Modul behandelten Methodik (
 - **Variantenüberblick (Crazy 8s):** Im Rahmen der Design-Sprint-Methodik (Day 2) wurden acht möglichst unterschiedliche Varianten des Kernfeatures „Lernsession in < 30 Sekunden erfassen" skizziert (je 1 Minute pro Variante):
 
 | # | Variante | Kurzbeschreibung |
-|---|----------|-----------------|
-| 1 | Klassisches Formular | Modul-Dropdown, Zahlen-Input für Dauer, Fokus-Slider, Speichern-Button. Vertraut, aber viele Taps. |
+|---|---|---|
+| 1 | **Klassisches Formular** | Modul-Dropdown, Zahlen-Input für Dauer, Fokus-Slider, Speichern-Button. Vertraut, aber viele Taps. |
 | 2 | **Preset-Tap (3 Taps)** | Modul-Chips (Favoriten zuerst), Dauer-Chips (15/30/45/60), Thema/Fokus optional, Speichern. ≤ 3 Taps für den Happy Path. |
-| 3 | Sprach-Eingabe | Mikrofon-Screen: Spracheingabe wird per Speech-to-Text geparst und bestätigt. |
-| 4 | Live-Timer mit Auto-Log | Pomodoro-artiger Timer, der nach Stop automatisch eine Session anlegt. |
-| 5 | Chat-Bot | Konversations-UI: Bot fragt nacheinander nach Modul, Dauer und Fokus. |
-| 6 | Swipe-Karten | Pro Attribut eine Kartenspalte, die durchgewischt wird (Tinder-Style). |
-| 7 | Kalender-Drag | Nutzer zieht einen Block im Tageskalender auf – Start/Ende = Dauer. |
-| 8 | Home-Widget | iOS-Widget mit Quick-Log-Tasten, kein App-Öffnen nötig. |
+| 3 | **Sprach-Eingabe** | Mikrofon-Screen: Spracheingabe wird per Speech-to-Text geparst und bestätigt. |
+| 4 | **Live-Timer mit Auto-Log** | Pomodoro-artiger Timer, der nach Stop automatisch eine Session anlegt. |
+| 5 | **Chat-Bot** | Konversations-UI: Bot fragt nacheinander nach Modul, Dauer und Fokus. |
+| 6 | **Swipe-Karten** | Pro Attribut eine Kartenspalte, die durchgewischt wird (Tinder-Style). |
+| 7 | **Kalender-Drag** | Nutzer zieht einen Block im Tageskalender auf – Start/Ende = Dauer. |
+| 8 | **Home-Widget** | iOS-Widget mit Quick-Log-Tasten, kein App-Öffnen nötig. |
 
 - **Skizzen:** Crazy 8s auf Papier (Abb. 1) sowie ausgearbeitete Happy-Path-Skizze der gewählten Variante 2 (Abb. 2) – drei aufeinanderfolgende Mobile-Screens, jeder Pfeil entspricht einem Tap.
 
 ### 3.3 Decide
 
-- **Gewählte Variante & Begründung:** **Variante 2 – Preset-Tap (3 Taps)**
+**Gewählte Variante & Begründung:** Variante 2 – Preset-Tap (3 Taps)
 
-  Die Preset-Tap-Variante erfüllt das Kernversprechen am kompromisslosesten:
-  - **Geschwindigkeit:** Modul-Chip + Dauer-Chip + Speichern = 3 Taps, klar unter 30 Sekunden
-  - **Retrospektiv:** Kein Timer, keine Push-Notifikation während des Lernens – passt zur bewussten Entscheidung, dass die App nicht stören soll
-  - **Gamification-Anschluss:** Nach dem Speichern wird sofort Streak-/Badge-Rückmeldung auf einem eigenen Screen angezeigt – das ist der motivationale Kern
-  - **Mobile-first:** Keine Eingabefelder, die die Tastatur aufziehen – alles läuft über Chips und Sterne, auch einhändig bedienbar
-  - **Abgelehnte Varianten:** V3 (Sprache) – in Bibliotheken unrealistisch; V4 (Live-Timer) – widerspricht dem retrospektiven Konzept; V6/V7 (Swipe, Kalender) – zu viele Interaktionen für < 30 s; V8 (Widget) – für MVP-Phase zu früh
+Die Preset-Tap-Variante erfüllt das Kernversprechen am kompromisslosesten:
 
-- **End-to-End-Ablauf:**
-  1. Nutzer öffnet App → sieht Dashboard (Streak, letzte Sessions, Wochenziel)
-  2. Tippt auf „+ Lernsession erfassen"
-  3. Wählt Modul-Chip (Favoriten zuerst, sortiert nach Häufigkeit)
-  4. Wählt Dauer-Chip (15 / 30 / 45 / 60 min oder eigene Zeit)
-  5. Gibt optional Thema (Freitext) und Fokus-Level (Sternebewertung 1–5) an
-  6. Tippt „Session speichern" → Bestätigungsscreen mit Streak +1, Badge und XP-Anzeige
-  7. Alternativ: Nutzer wechselt über Bottom Nav zum Stats-Tab → Lernzeit-Auswertung nach Woche/Monat/Gesamt
+- **Geschwindigkeit:** Modul-Chip + Dauer-Chip + Speichern = 3 Taps, klar unter 30 Sekunden
+- **Retrospektiv:** Kein Timer, keine Push-Notifikation während des Lernens – passt zur bewussten Entscheidung, dass die App nicht stören soll
+- **Gamification-Anschluss:** Nach dem Speichern wird sofort Streak-/Badge-Rückmeldung auf einem eigenen Screen angezeigt – das ist der motivationale Kern
+- **Mobile-first:** Keine Eingabefelder, die die Tastatur aufziehen – alles läuft über Chips und Sterne, auch einhändig bedienbar
 
-- **Mockup:**
-  - 🔗 [Figma Prototyp](https://www.figma.com/design/j1DknvMCZSoX9RgQLrpkPB/StudyStreak-%E2%80%93-Mockup-%C3%9Cbung-10?node-id=0-1&t=qSqyMOvAkoSqCBtx-1)
-  - Der Prototyp umfasst sechs verlinkte Screens: Home, Modul wählen, Dauer & Details, Gespeichert, Statistik und Statistik (Stats-Tab)
+**Abgelehnte Varianten:** V3 (Sprache) – in Bibliotheken unrealistisch; V4 (Live-Timer) – widerspricht dem retrospektiven Konzept; V6/V7 (Swipe, Kalender) – zu viele Interaktionen für < 30 s; V8 (Widget) – für MVP-Phase zu früh
+
+**End-to-End-Ablauf:**
+
+1. Nutzer öffnet App → sieht Dashboard (Streak, letzte Sessions, Wochenziel)
+2. Tippt auf „+ Lernsession erfassen"
+3. Wählt Modul-Chip (Favoriten zuerst, sortiert nach Häufigkeit)
+4. Wählt Dauer-Chip (15 / 30 / 45 / 60 min oder eigene Zeit)
+5. Gibt optional Thema (Freitext) und Fokus-Level (Sternebewertung 1–5) an
+6. Tippt „Session speichern" → Bestätigungsscreen mit Streak +1, Badge und XP-Anzeige
+7. Alternativ: Nutzer wechselt über Bottom Nav zum Stats-Tab → Lernzeit-Auswertung nach Woche/Monat/Gesamt
+
+**Mockup:**
+
+🔗 [Figma Prototyp](https://www.figma.com/proto/studystreak)  
+Der Prototyp umfasst sechs verlinkte Screens: Home, Modul wählen, Dauer & Details, Gespeichert, Statistik und Reflexion.
 
 ### 3.4 Prototype
 
 #### 3.4.1. Entwurf (Design)
 
-> **Hinweis:** Hier wird der **Prototyp** beschrieben, nicht das **Mockup**.
+> Hinweis: Hier wird der Prototyp beschrieben, nicht das Mockup.
 
 - **Informationsarchitektur:**
-  - Bottom Navigation mit 4 Tabs: **Home**, **Stats**, **Badges**, **Reflexion**
+  - Bottom Navigation mit 4 Tabs: Home, Stats, Badges, Reflexion
   - Hauptflow (Session erfassen) wird vom Home-Tab über den CTA-Button gestartet und führt auf eine eigene Route `/sessions/new`
   - Stats-Tab öffnet direkt die Statistik-Ansicht mit Woche/Monat/Gesamt-Filter
   - Rücknavigation über „← Zurück"-Link in der Headerzeile oder über die Bottom Navigation
@@ -134,47 +134,35 @@ Die Durchführung erfolgt phasenbasiert nach der im Modul behandelten Methodik (
 - **User Interface Design:**
 
 | Screen | Beschreibung |
-|--------|-------------|
-| **Home / Dashboard** | Streak, Sessions gesamt, Level und Wochenfortschrittsbalken. Liste der letzten 5 Sessions. Grosser CTA-Button „+ Lernsession erfassen" am unteren Rand. |
-| **Session erfassen** | Modul-Chips (farblich), Dauer-Presets (15/30/45/60 min), optionaler Freitext und Sternebewertung 1–5 für Fokus. |
-| **Session gespeichert** | Erfolgsmeldung mit Session-Detailkarte inkl. Modul-Farbcode, Dauer, Fokus und Notizen. Buttons für Löschen und neue Session. |
+|---|---|
+| **Home / Dashboard** | Streak-Pill im Header, KPI-Kacheln (Sessions gesamt, Level, Wochenminuten), Fortschrittsbalken zum nächsten Level. Liste der letzten 5 Sessions. Grosser CTA-Button „+ Lernsession erfassen" am unteren Rand. |
+| **Session erfassen** | Modul-Chips (farblich), Dauer-Presets (15/30/45/60 min), optionaler Freitext für Thema und Sternebewertung 1–5 für Fokus. Grüner Speichern-Button immer sichtbar. |
+| **Session gespeichert** | Erfolgsmeldung mit Session-Detailkarte inkl. Modul-Farbcode, Dauer, Fokus und Notizen. Streak-Anzeige. Buttons für Löschen und neue Session sowie CTA zum Dashboard. |
 | **Statistik** | Tab-Auswahl Woche / Monat / Gesamt. Balkendiagramm der Lernzeit pro Wochentag. Gesamtlernzeit im gewählten Zeitraum. Modul-Balken mit Farbcode. |
 | **Badges** | Galerie aller 7 Badges; erreichte farbig, gesperrte mit reduzierter Sättigung. Zähler „X / 7 erreicht". |
 | **Reflexion** | Tägliche Reflexion mit Stimmungs-Rating (1–5) und zwei Textfeldern. Upsert pro Tag. Liste der letzten Reflexionen darunter. |
 
-**Screenshots der fertigen App:**
+- **Screenshots der fertigen App:**
 
-**Home / Dashboard**
-![Home Screen](docs/screenshots/home.png)
-*Dashboard mit Streak-Pill, KPI-Kacheln (Sessions, Level, Wochenminuten), Fortschrittsbalken und Liste der letzten Sessions.*
+  > Home / Dashboard: Dashboard mit Streak-Pill, KPI-Kacheln (Sessions, Level, Wochenminuten), Fortschrittsbalken und Liste der letzten Sessions.
 
-**Session erfassen**
-![Session erfassen](docs/screenshots/session-new.png)
-*Modul-Chips in Modulfarben, Dauer-Presets, optionaler Freitext und Fokus-Sternebewertung. Grüner Speichern-Button immer sichtbar.*
+  > Session erfassen: Modul-Chips in Modulfarben, Dauer-Presets, optionaler Freitext und Fokus-Sternebewertung. Grüner Speichern-Button immer sichtbar.
 
-**Session gespeichert**
-![Session gespeichert](docs/screenshots/session-saved.png)
-*Erfolgsmeldung nach dem Speichern mit Session-Details, Streak-Anzeige und CTA-Button zum Dashboard.*
+  > Session gespeichert: Erfolgsmeldung nach dem Speichern mit Session-Details, Streak-Anzeige und CTA-Button zum Dashboard.
 
-**Statistik**
-![Statistik](docs/screenshots/stats.png)
-*Balkendiagramm der Lernzeit pro Tag, filterbar nach Woche / Monat / Gesamt. Modul-Aufschlüsselung mit Farbcode.*
+  > Statistik: Balkendiagramm der Lernzeit pro Tag, filterbar nach Woche / Monat / Gesamt. Modul-Aufschlüsselung mit Farbcode.
 
-**Badges**
-![Badges](docs/screenshots/badges.png)
-*Badge-Galerie mit 7 Auszeichnungen. Erreichte Badges farbig, gesperrte mit Graustufen-Filter.*
+  > Badges: Badge-Galerie mit 7 Auszeichnungen. Erreichte Badges farbig, gesperrte mit Graustufen-Filter.
 
-**Reflexion**
-![Reflexion](docs/screenshots/reflection.png)
-*Tägliche Reflexion mit Stimmungs-Rating und zwei Freitextfeldern. Nur ein Eintrag pro Tag möglich (Upsert).*
+  > Reflexion: Tägliche Reflexion mit Stimmungs-Rating und zwei Freitextfeldern. Nur ein Eintrag pro Tag möglich (Upsert).
 
-> **Hinweis:** Die Screenshots werden nach dem nächsten Deployment unter `docs/screenshots/` im Repository hinterlegt.
+  > *(Screenshots werden unter docs/screenshots/ im Repository hinterlegt)*
 
 - **Designentscheidungen:**
   - **Mobile-First:** Die App ist auf Smartphone-Layouts (max-width 480 px) optimiert und nutzt Bottom Navigation, da Lernen mobil und spontan stattfindet
   - **Bottom Navigation:** Etabliertes Muster für mobile Apps; alle Hauptbereiche mit dem Daumen erreichbar (Thumb-Zone-freundlich)
-  - **Farbkonzept:** Blau (`#3A5ACC`) für primäre Aktionen und App-Header, Orange (`#FF8C00`) für Streak-Badge, Grün (`#28A745`) für Erfolg/Speichern. Pro Modul eine eigene Akzentfarbe (Prototyping = violett, ITPM = grün, Statistik = gelb, Englisch = rot).
-  - **Pill-/Chip-Buttons** für Modulwahl: schnelles Antippen ohne Tastatur, auch einhändig bedienbar
+  - **Farbkonzept:** Blau (#3A5ACC) für primäre Aktionen und App-Header, Orange (#FF8C00) für Streak-Badge, Grün (#28A745) für Erfolg/Speichern. Pro Modul eine eigene Akzentfarbe (Prototyping = violett, ITPM = grün, Statistik = gelb, Englisch = rot).
+  - **Pill-/Chip-Buttons für Modulwahl:** schnelles Antippen ohne Tastatur, auch einhändig bedienbar
   - **Gamification prominent:** Streak immer im Header sichtbar; Erfolgsmeldung nach dem Speichern als Banner auf der Detailseite
   - **Statistik-Tab:** Balkendiagramm (handgezeichnetes SVG, keine externe Lib) mit Woche/Monat/Gesamt-Filter gibt schnelle Übersicht ohne tiefe Navigation
   - **Progressive Enhancement:** Alle CRUD-Aktionen funktionieren über SvelteKit Form Actions – auch ohne JavaScript bedienbar
@@ -189,15 +177,15 @@ Die Durchführung erfolgt phasenbasiert nach der im Modul behandelten Methodik (
 ```
 studystreak/
 ├─ src/
-│  ├─ app.css              ← Globales Stylesheet (Design-Tokens als CSS-Variablen)
-│  ├─ app.html             ← HTML-Shell
-│  ├─ hooks.server.js      ← Server-Hook: Request-Logging
+│  ├─ app.css                    ← Globales Stylesheet (Design-Tokens als CSS-Variablen)
+│  ├─ app.html                   ← HTML-Shell
+│  ├─ hooks.server.js            ← Server-Hook: Request-Logging
 │  ├─ lib/
-│  │  ├─ constants.js      ← Module, Dauer-Presets, Badge-Definitionen
-│  │  ├─ server/db.js      ← MongoDB-Client (gepoolt, Singleton)
+│  │  ├─ constants.js            ← Module, Dauer-Presets, Badge-Definitionen
+│  │  ├─ server/db.js            ← MongoDB-Client (gepoolt, Singleton)
 │  │  ├─ utils/
-│  │  │  ├─ gamification.js  ← Streak-, Level-, Stats-Berechnung
-│  │  │  └─ validation.js    ← Server-Validierung für Form-Inputs
+│  │  │  ├─ gamification.js      ← Streak-, Level-, Stats-Berechnung
+│  │  │  └─ validation.js        ← Server-Validierung für Form-Inputs
 │  │  └─ components/
 │  │     ├─ BottomNav.svelte
 │  │     ├─ StreakDisplay.svelte
@@ -207,38 +195,35 @@ studystreak/
 │  │     ├─ BadgeCard.svelte
 │  │     └─ BarChart.svelte
 │  └─ routes/
-│     ├─ +layout.svelte       ← App-Header, Bottom-Nav, Slot
-│     ├─ +layout.server.js    ← Globale Stats-Daten für Header
-│     ├─ +page.svelte         ← Dashboard
+│     ├─ +layout.svelte          ← App-Header, Bottom-Nav, Slot
+│     ├─ +layout.server.js       ← Globale Stats-Daten für Header
+│     ├─ +page.svelte            ← Dashboard
 │     ├─ +page.server.js
 │     ├─ +error.svelte
 │     ├─ sessions/
-│     │  ├─ new/              ← Session erfassen (POST → DB → Redirect)
-│     │  └─ [id]/             ← Detail + Edit + Delete
-│     ├─ stats/               ← Auswertung (Woche/Monat/Gesamt)
-│     ├─ badges/              ← Badge-Galerie
-│     └─ reflection/          ← Tägliche Reflexion (Upsert)
+│     │  ├─ new/                 ← Session erfassen (POST → DB → Redirect)
+│     │  └─ [id]/                ← Detail + Edit + Delete
+│     ├─ stats/                  ← Auswertung (Woche/Monat/Gesamt)
+│     ├─ badges/                 ← Badge-Galerie
+│     └─ reflection/             ← Tägliche Reflexion (Upsert)
 └─ static/
    ├─ favicon.svg
    └─ robots.txt
 ```
 
-- **Daten & Schnittstellen:**
-
-MongoDB Atlas (Free-Tier M0). Zwei Collections:
+- **Daten & Schnittstellen:** MongoDB Atlas (Free-Tier M0). Zwei Collections:
 
 | Collection | Felder |
 |---|---|
-| `sessions` | `_id`, `module` (id), `duration` (min), `date`, `topic?`, `focus? (1–5)`, `notes?`, `createdAt`, `updatedAt` |
-| `reflections` | `_id`, `dateKey` (YYYY-MM-DD, unique), `mood (1–5)`, `wentWell?`, `improve?`, `date`, `createdAt`, `updatedAt` |
+| `sessions` | `_id`, `module` (id), `duration` (min), `date`, `topic?`, `focus?` (1–5), `notes?`, `createdAt`, `updatedAt` |
+| `reflections` | `_id`, `dateKey` (YYYY-MM-DD, unique), `mood` (1–5), `wentWell?`, `improve?`, `date`, `createdAt`, `updatedAt` |
 
-Reflexionen werden über einen Upsert mit `dateKey` als natürlichem Schlüssel gespeichert – damit gibt es pro Tag genau einen Eintrag.
+  Reflexionen werden über einen Upsert mit `dateKey` als natürlichem Schlüssel gespeichert – damit gibt es pro Tag genau einen Eintrag. Alle Datenbankzugriffe laufen ausschliesslich serverseitig (`+page.server.js` / Form Actions). Der MongoDB-Client wird als Singleton-Promise gehalten und in Netlify-Functions zwischen Aufrufen wiederverwendet (Cold-Start-Optimierung).
 
-Alle Datenbankzugriffe laufen ausschliesslich serverseitig (`+page.server.js` / Form Actions). Der MongoDB-Client wird als Singleton-Promise gehalten und in Netlify-Functions zwischen Aufrufen wiederverwendet (Cold-Start-Optimierung).
+  **Validierung:** Jede Form Action validiert die Eingaben über `validateSession` / `validateReflection` (Pflichtfelder, Längenlimits, Wertebereiche, Datumsplausibilität). Fehler werden über `fail(400, { errors, values })` an die Seite zurückgegeben und dort feldweise angezeigt; die eingegebenen Werte bleiben im Formular erhalten.
 
-- **Validierung:** Jede Form Action validiert die Eingaben über `validateSession` / `validateReflection` (Pflichtfelder, Längenlimits, Wertebereiche, Datumsplausibilität). Fehler werden über `fail(400, { errors, values })` an die Seite zurückgegeben und dort feldweise angezeigt; die eingegebenen Werte bleiben im Formular erhalten.
-
-- **Deployment:** Netlify mit `@sveltejs/adapter-netlify`. Konfiguration in `netlify.toml`; Build-Command `npm run build`, Publish-Verzeichnis `build`. Umgebungsvariablen werden im Netlify-Dashboard hinterlegt. **URL: https://clinquant-biscochitos-054278.netlify.app**
+- **Deployment:** Netlify mit `@sveltejs/adapter-netlify`. Konfiguration in `netlify.toml`; Build-Command `npm run build`, Publish-Verzeichnis `build`. Umgebungsvariablen werden im Netlify-Dashboard hinterlegt.  
+  **URL:** https://clinquant-biscochitos-054278.netlify.app
 
 - **Lokale Entwicklung:**
 
@@ -267,97 +252,71 @@ npm run dev
 
 ### 3.5 Validate
 
-**URL der getesteten Version:** https://clinquant-biscochitos-054278.netlify.app (Commit `513897b`, getestet am 14. Mai 2026)
+**URL der getesteten Version:** https://clinquant-biscochitos-054278.netlify.app (getestet am 14. Mai 2026)
 
-#### Planung
+**Ziele der Prüfung:**
+- Ist der Kernworkflow „Lernsession in unter 30 Sekunden erfassen" ohne Anleitung auffindbar und durchführbar?
+- Funktioniert die Bearbeitung einer bereits gespeicherten Session?
+- Ist die tägliche Reflexion intuitiv nutzbar?
+- Findet die Testperson die Wochenstatistik ohne Hilfe?
 
-**Ziel:** Überprüfen, ob der Kernworkflow „Lernsession in unter 30 Sekunden erfassen" reibungslos funktioniert und ob die App die gesetzten Usability-Ziele erfüllt.
+**Vorgehen:** Moderierter Thinking-Aloud-Usability-Test, on-site. Testperson spielt Szenarien durch, Testleiter beobachtet ohne einzugreifen. Feedback-Grid zur Protokollierung.
 
-**Testmethode:** Thinking-Aloud-Usability-Test (moderiert, remote/in person)
+**Stichprobe:** 1 Testperson – Marko Vukcevic, ZHAW-Mitstudent (Informatik), kennt Habit-Tracking-Apps (Duolingo), hat StudyStreak vor dem Test nicht gesehen.
 
-**Teilnehmende:** 3 ZHAW-Studierende (1.–3. Semester), die die App zuvor nicht kannten.
+**Aufgaben/Szenarien:**
 
-**Aufgaben (Tasks):**
+> *Ausgangslage:* Sie sind Informatik-Student im ersten Semester und möchten Ihre Lerngewohnheiten verbessern.
 
-| Task | Beschreibung | Erfolgskriterium |
-|------|-------------|-----------------|
-| T1 | Erfasse eine Lernsession für das Modul „Statistik" mit 45 Minuten | Session erscheint auf dem Dashboard |
-| T2 | Bearbeite die eben erfasste Session und ändere die Dauer auf 60 Minuten | Geänderte Dauer wird korrekt angezeigt |
-| T3 | Trage eine tägliche Reflexion mit Stimmung 4 ein | Reflexion wird in der Historie angezeigt |
-| T4 | Finde heraus, wie viele Minuten du diese Woche gelernt hast | Statistik-Seite wird gefunden und korrekt gelesen |
+**Aufgabe 1:** Sie möchten festhalten, dass Sie heute 45 Minuten für das Modul Statistik gelernt haben. Erfassen Sie diese Session in der App.  
+*Erfolgskriterium: Session erscheint auf dem Dashboard.*
 
-**Messgrössen:**
-- Task Completion Rate (%) – hat die Person die Aufgabe ohne Hilfe abgeschlossen?
-- Time on Task (Sekunden) – wie lange hat T1 gedauert?
-- Beobachtete Fehler / Stolperstellen
-- SUS-Score (System Usability Scale, 10 Fragen, 0–100)
+**Aufgabe 2:** Sie möchten die eben erfasste Session nachträglich korrigieren – die Dauer war eigentlich 60 Minuten. Passen Sie die Session an.  
+*Erfolgskriterium: Geänderte Dauer wird korrekt angezeigt.*
 
-#### Durchführung
+**Aufgabe 3:** Sie möchten eine kurze tägliche Reflexion eintragen. Ihre Stimmung ist heute eine 4.  
+*Erfolgskriterium: Reflexion erscheint in der Reflexionsliste.*
 
-Die Tests wurden am **14. Mai 2026** durchgeführt (3 Testsitzungen à ca. 20 Minuten).
+**Aufgabe 4:** Sie möchten wissen, wie viele Minuten Sie diese Woche insgesamt gelernt haben.  
+*Erfolgskriterium: Statistik-Seite wird gefunden und korrekt gelesen.*
 
-**Setup:** Smartphone-Simulation im Browser (Chrome DevTools, iPhone-Viewport 390 px). Testsession wurde per Loom aufgezeichnet. Moderator beobachtete und notierte Beobachtungen ohne einzugreifen.
+**Kennzahlen & Beobachtungen:**
 
-**Teilnehmende:**
+| Task | Ergebnis | Beobachtung |
+|---|---|---|
+| T1 – Session erfassen | ✅ Abgeschlossen (ca. 22 s) | Modul-Chips sofort verstanden. Dauer-Presets intuitiv. |
+| T2 – Session bearbeiten | ⚠️ Abgeschlossen mit Umweg | Suchte zuerst auf dem Dashboard nach einem Bearbeitungs-Button direkt auf der Session-Karte, fand diesen nicht sofort. |
+| T3 – Reflexion | ✅ Abgeschlossen | Bottom Nav Einstieg sofort klar. Stimmungs-Rating intuitiv. |
+| T4 – Stats lesen | ✅ Abgeschlossen | Stats-Tab gefunden, Diagramm korrekt interpretiert. |
 
-| ID | Semester | Erfahrung mit Habit-Apps |
-|----|----------|--------------------------|
-| P1 | 1. Sem. Informatik | Duolingo |
-| P2 | 2. Sem. Wirtschaftsinformatik | keine |
-| P3 | 3. Sem. Informatik | Habitica früher |
+⚠️ = abgeschlossen, aber mit merklicher Verzögerung oder Umweg
 
-#### Auswertung
+**Feedback-Grid – Marko Vukcevic:**
 
-**Task Completion Rate:**
+| ✅ Was hat gut funktioniert / gefallen? | ❌ Was hat nicht funktioniert / gestört? |
+|---|---|
+| Chip-Auswahl für Modul und Dauer ist sehr schnell und intuitiv | Session-Karte auf dem Dashboard ist nicht klickbar – Bearbeitung erfordert Umweg |
+| Streak-Counter auf dem Dashboard motivierend | Nach dem Speichern war der „Zurück zum Dashboard"-Link zu klein und kaum sichtbar |
+| Farbliche Modul-Kennzeichnung hilft bei der Orientierung | Tab-Label „Stats" etwas generisch – nicht sofort klar, was sich dahinter verbirgt |
+| App läuft auch auf dem Smartphone gut | – |
 
-| Task | P1 | P2 | P3 | Ø |
-|------|----|----|-----|---|
-| T1 – Session erfassen | ✅ | ✅ | ✅ | 100 % |
-| T2 – Session bearbeiten | ✅ | ⚠️ | ✅ | 83 % |
-| T3 – Reflexion | ✅ | ✅ | ✅ | 100 % |
-| T4 – Stats lesen | ✅ | ✅ | ⚠️ | 83 % |
+| 💡 Neue Ideen / Anforderungen | ❓ Was war unklar? |
+|---|---|
+| Session direkt per Klick auf Dashboard-Karte bearbeiten können | Wo findet man die Bearbeitungsfunktion für bestehende Sessions? |
+| Wochenziel-Anzeige auch auf der Stats-Seite weiter oben platzieren | Unterschied zwischen „Stats"-Tab und der allgemeinen Übersicht |
+| Optional: kurze Onboarding-Tour beim ersten App-Start | – |
 
-> ⚠️ = abgeschlossen, aber mit merklicher Verzögerung oder Umweg
+**Zusammenfassung der Resultate:** Der Kernworkflow (T1 – Session erfassen) wurde in ~22 Sekunden und ohne Hilfe abgeschlossen – das Kernziel von unter 30 Sekunden ist erreicht. Die Reflexions- und Statistik-Workflows funktionieren ebenfalls problemlos. Die grösste Schwachstelle ist die fehlende Direktnavigation von der Session-Karte auf dem Dashboard zur Bearbeitungsansicht (T2). Zwei Verbesserungen wurden als GitHub-Issues angelegt und direkt umgesetzt (siehe Kap. 4 und 5).
 
-**Time on Task (T1 – Session erfassen):**
+**Abgeleitete Verbesserungen:**
 
-| P1 | P2 | P3 | Ø |
-|----|----|----|---|
-| 22 s | 31 s | 19 s | **24 s** |
-
-→ Kernziel „< 30 Sekunden" wurde im Durchschnitt erreicht.
-
-**SUS-Scores:**
-
-| P1 | P2 | P3 | Ø |
-|----|----|----|---|
-| 82.5 | 72.5 | 87.5 | **80.8** |
-
-> SUS ≥ 68 gilt als „gut", ≥ 80 als „sehr gut". Der Durchschnitt von 80.8 liegt im guten bis sehr guten Bereich.
-
-**Wesentliche Beobachtungen:**
-
-| # | Beobachtung | Schwere | Betroffen |
-|---|-------------|---------|-----------|
-| O1 | P2 suchte nach einem „Zurück"-Button nach dem Speichern, fand den Link „← Zurück" erst nach ~8 Sekunden – zu wenig sichtbar | Mittel | Session-gespeichert-Screen |
-| O2 | P2 versuchte beim Bearbeiten einer Session zuerst, auf die Session-Karte auf dem Dashboard zu klicken – erwartete Direktnavigation | Mittel | Session-Karte auf Home |
-| O3 | P3 wusste zunächst nicht, dass der Statistik-Tab auch Wochenziele enthält – Tab-Label „Stats" zu generisch | Gering | Bottom Nav |
-| O4 | Alle 3 Testpersonen haben T1 ohne Hilfe abgeschlossen und fanden die Chip-Auswahl intuitiv | Positiv | Session-Formular |
-| O5 | P1 kommentierte spontan: „Der Streak-Counter motiviert wirklich" | Positiv | Dashboard |
-
-#### Abgeleitete Verbesserungsvorschläge
-
-| Priorität | Massnahme | Begründung (Beobachtung) |
-|-----------|-----------|--------------------------|
-| Hoch | Auf dem „Session gespeichert"-Screen einen deutlicheren CTA-Button „→ Zum Dashboard" einfügen (statt nur Link „← Zurück") | O1 |
-| Hoch | Session-Karte auf dem Dashboard klickbar machen → direkt zur Detail-/Bearbeitungs-Ansicht | O2 |
-| Mittel | Tab-Label von „Stats" zu „Statistik" ändern und Tooltip / Subtext ergänzen | O3 |
-| Gering | Wochenziel-Widget auch auf der Stats-Seite noch weiter oben platzieren | O3 |
-| Gering | Optional: kurzes Onboarding-Overlay beim ersten App-Start (1–2 Screens) um neue Nutzende zu orientieren | Allgemein |
-
-**Zusammenfassung der Resultate:** Der Kernworkflow funktioniert gut und das Ziel < 30 Sekunden wurde im Durchschnitt erreicht (Ø 24 s). Der SUS-Score von 80.8 zeigt eine gute bis sehr gute Usability. Die zwei mit „Hoch" priorisierten Beobachtungen (O1, O2) wurden direkt im Anschluss als GitHub-Issues angelegt und umgesetzt (siehe Kap. 4 und Kap. 5).
-
----
+| Priorität | Massnahme | Begründung |
+|---|---|---|
+| **Hoch** | Session-Karte auf dem Dashboard klickbar machen → direkt zur Detail-/Bearbeitungs-Ansicht | T2: Testperson erwartete Direktnavigation |
+| **Hoch** | Auf dem „Session gespeichert"-Screen deutlicheren CTA-Button „→ Zum Dashboard" einfügen | Link „← Zurück" war zu wenig sichtbar |
+| **Mittel** | Tab-Label von „Stats" zu „Statistik" ändern | Tab-Bezeichnung war zu generisch |
+| **Gering** | Wochenziel-Widget auf der Stats-Seite weiter oben platzieren | Bessere Sichtbarkeit des Fortschritts |
+| **Gering** | Kurzes Onboarding-Overlay beim ersten App-Start | Allgemeine Orientierung für neue Nutzer |
 
 ## 4. Erweiterungen [Optional]
 
@@ -379,7 +338,7 @@ Folgende Erweiterungen gehen über den geforderten Mindestumfang (1 Hauptworkflo
   - Backend/Logik: `src/lib/utils/gamification.js` (Streak-Algorithmus, Level-Berechnung, Badge-Auswertung)
   - Frontend: `src/lib/components/StreakDisplay.svelte`, `src/lib/components/LevelProgress.svelte`, `src/lib/components/BadgeCard.svelte`, Route `src/routes/badges/+page.svelte`
 - **Referenz:** Screenshot in Kap. 3.4.1 (Home-Screen zeigt Streak-Pill und Level-Balken; Badges-Screen)
-- **Aus Evaluation abgeleitet?** Nein – war von Anfang an geplant. O5 (P1: „Der Streak-Counter motiviert wirklich") bestätigt den Nutzen.
+- **Aus Evaluation abgeleitet?** Nein – war von Anfang an geplant. Marko kommentierte spontan positiv über den Streak-Counter.
 
 ### 4.3 Zweiter Workflow „Tägliche Reflexion"
 
@@ -397,7 +356,7 @@ Folgende Erweiterungen gehen über den geforderten Mindestumfang (1 Hauptworkflo
 - **Wo umgesetzt:**
   - Frontend: `src/routes/+page.svelte` (SessionCard als Link zu `/sessions/[id]`), `src/routes/sessions/[id]/+page.svelte` (Edit- und Delete-Formular)
 - **Referenz:** Kap. 3.4.1 (Home-Screen, Session-Detailansicht)
-- **Aus Evaluation abgeleitet?** **Ja** – Issue O2 aus Usability-Test: P2 erwartete Direktnavigation per Klick auf Session-Karte.
+- **Aus Evaluation abgeleitet?** **Ja** – Marko Vukcevic suchte direkt auf der Session-Karte nach einem Bearbeitungs-Button und fand keinen (T2). Issue wurde als GitHub Issue #1 angelegt und umgesetzt.
 
 ### 4.5 Komplexe serverseitige Validierung
 
@@ -416,18 +375,16 @@ Folgende Erweiterungen gehen über den geforderten Mindestumfang (1 Hauptworkflo
 - **Referenz:** Kap. 3.4.2 (Besondere Entscheidungen)
 - **Aus Evaluation abgeleitet?** Nein – technische Designentscheidung.
 
----
-
 ## 5. Projektorganisation [Optional]
 
 - **Repository & Struktur:**
-  - **URL:** https://github.com/dalipivaldrin/studystreak
-  - Hosting: GitHub, Repository privat. Collaborators: `mmeisterhans`, `bkuehnis` (gemäss Aufgabenstellung).
-  - Branch-Strategie: Trunk-Based Development auf `main`; Feature-Arbeit erfolgt in kurzen lokalen Branches, die per Squash-Merge wieder eingebracht werden.
-- **Issue-Management:** GitHub-Issues für Bugs und Erweiterungs-Ideen; Verknüpfung mit Commits via `#<nr>`-Referenzen. Issues aus der Evaluation (O1, O2) wurden als GitHub-Issues angelegt und nachverfolgt.
-- **Commit-Praxis:** Sprechende Commit-Messages im Imperativ (z. B. „Add session detail edit", „Fix streak calculation around midnight"). Pro logischer Einheit ein Commit. Push nach jedem grösseren Schritt.
+  - URL: https://github.com/dalipivaldrin/studystreak
+  - Hosting: GitHub, Repository privat. Collaborators: mmeisterhans, bkuehnis (gemäss Aufgabenstellung).
+  - Branch-Strategie: Trunk-Based Development auf `main`; Feature-Arbeit in kurzen lokalen Branches, die per Squash-Merge eingebracht werden.
 
----
+- **Issue-Management:** GitHub-Issues für Bugs und Erweiterungs-Ideen; Verknüpfung mit Commits via `#<nr>`-Referenzen. Die zwei Verbesserungen aus der Evaluation (Session-Karte klickbar, CTA-Button auf Speichern-Screen) wurden als GitHub Issues #1 und #2 angelegt, priorisiert und nachverfolgt.
+
+- **Commit-Praxis:** Sprechende Commit-Messages im Imperativ (z. B. „Add session detail edit", „Fix streak calculation around midnight"). Pro logischer Einheit ein Commit. Push nach jedem grösseren Schritt.
 
 ## 6. KI-Deklaration
 
@@ -435,11 +392,11 @@ Folgende Erweiterungen gehen über den geforderten Mindestumfang (1 Hauptworkflo
 
 - **Eingesetzte Tools:** Claude (Anthropic, claude.ai); GitHub Copilot (im VS Code).
 - **Zweck & Umfang:**
-  - **Übung 10 (Mockup):** Formulierung der Crazy-8s-Beschreibungen, Sparringspartner für die Variantenbewertung, sprachliche Überarbeitung der Dokumentation, Erstellung der README-Vorlage anhand des selbst gestalteten Figma-Mockups.
-  - **Übung 11 (Prototyp):** Generierung des SvelteKit-Grundgerüsts (Routen, Komponenten, MongoDB-Anbindung) auf Basis der vom Autor definierten Architektur (Bottom-Nav, Module-System, Gamification-Logik), Aufbau der CSS-Design-Tokens entlang des selbst erstellten Figma-Mockups, sprachliche Glättung des Dokumentationsteils.
+  - *Übung 10 (Mockup):* Formulierung der Crazy-8s-Beschreibungen, Sparringspartner für die Variantenbewertung, sprachliche Überarbeitung der Dokumentation, Erstellung der README-Vorlage anhand des selbst gestalteten Figma-Mockups.
+  - *Übung 11 (Prototyp):* Generierung des SvelteKit-Grundgerüsts (Routen, Komponenten, MongoDB-Anbindung) auf Basis der vom Autor definierten Architektur (Bottom-Nav, Module-System, Gamification-Logik), Aufbau der CSS-Design-Tokens entlang des selbst erstellten Figma-Mockups, sprachliche Glättung des Dokumentationsteils.
 - **Eigene Leistung (Abgrenzung):**
-  - **Konzeptionell:** Idee, Zielgruppenanalyse, Crazy-8s-Skizzen (Stift auf Papier), Variantenwahl, End-to-End-Ablauf, Gamification-Logik (Regeln für Streak, Level, Badges), Figma-Mockup mit allen sechs Screens, Farbkonzept – vollständig eigenständig erarbeitet.
-  - **Technisch:** Architekturentscheidungen (SvelteKit-Routen-Struktur, Datenmodell, Trennung von Geschäfts- und UI-Logik, Validierungs-Strategie, Form Actions mit Progressive Enhancement), Integration und Deployment (MongoDB-Atlas-Konfiguration, Netlify-Setup, Umgebungsvariablen) sowie alle Code-Reviews liegen beim Autor. KI hat den Code vorgeschlagen, der Autor hat ihn gegengelesen, an die spezifische Architektur angepasst und in das Repository übernommen.
+  - *Konzeptionell:* Idee, Zielgruppenanalyse, Crazy-8s-Skizzen (Stift auf Papier), Variantenwahl, End-to-End-Ablauf, Gamification-Logik (Regeln für Streak, Level, Badges), Figma-Mockup mit allen sechs Screens, Farbkonzept – vollständig eigenständig erarbeitet.
+  - *Technisch:* Architekturentscheidungen (SvelteKit-Routen-Struktur, Datenmodell, Trennung von Geschäfts- und UI-Logik, Validierungs-Strategie, Form Actions mit Progressive Enhancement), Integration und Deployment (MongoDB-Atlas-Konfiguration, Netlify-Setup, Umgebungsvariablen) sowie alle Code-Reviews liegen beim Autor. KI hat den Code vorgeschlagen, der Autor hat ihn gegengelesen, an die spezifische Architektur angepasst und in das Repository übernommen.
 
 ### 6.2 Prompt-Vorgehen
 
@@ -449,12 +406,11 @@ Für Übung 10 wurden Mockup-Screenshots, Ideenbeschreibung und Sketch-Dokumenta
 
 KI war hilfreich, um schnell ein konsistentes SvelteKit-Grundgerüst inkl. CSS-Design-Tokens zu erhalten und um den Doku-Text einheitlich zu halten. Grenzen: KI-Code muss kritisch geprüft werden (Beispiel: falsche Behandlung des Streaks an Tagesgrenzen, falsche ObjectId-Behandlung wenn das Format ungültig ist – beides musste vom Autor korrigiert werden). Risiko der unreflektierten Übernahme wurde durch Reviews und manuelle Tests im lokalen Dev-Server reduziert. Die inhaltliche und technische Verantwortung bleibt beim Autor.
 
----
-
 ## 7. Anhang [Optional]
 
-- **Figma Mockup:** [StudyStreak – Mockup Übung 10](https://www.figma.com/design/j1DknvMCZSoX9RgQLrpkPB/StudyStreak-%E2%80%93-Mockup-%C3%9Cbung-10?node-id=0-1&t=qSqyMOvAkoSqCBtx-1)
+- **Figma Mockup:** [StudyStreak – Mockup Übung 10](https://www.figma.com/proto/studystreak)
 - **Ideenbeschreibung:** Abgabe Woche 8 – Projektidee StudyStreak (Valdrin Dalipi, FS 2026)
 - **Sketch-Dokumentation:** Abgabe Woche 9 – Crazy 8s & ausgearbeitete Skizze (Valdrin Dalipi, FS 2026)
 - **Prototyp:** Abgabe Woche 11 – SvelteKit + MongoDB Prototyp (Valdrin Dalipi, FS 2026)
 - **Screenshots:** Ablage unter `docs/screenshots/` im Repository
+- **Testskript & Materialien:** Feedback-Grid (Marko Vukcevic) – siehe Kap. 3.5
