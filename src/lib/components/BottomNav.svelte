@@ -3,8 +3,8 @@
   const items = [
     { href: '/', icon: '🏠', label: 'Home' },
     { href: '/stats', icon: '📊', label: 'Statistik' },
-    { href: '/modules', icon: '📚', label: 'Faecher' },
-    { href: '/badges', icon: '🏅', label: 'Badges' },
+    { href: '/sessions', icon: '📚', label: 'Sessions' },
+    { href: '/exams', icon: '🎓', label: 'Prüfungen' },
     { href: '/reflection', icon: '📝', label: 'Reflexion' }
   ];
   $: pathname = $page.url.pathname;
