@@ -12,7 +12,7 @@ $: values = form?.values || {};
   let showPast = false;
   let submitting = false;
 
-function todayISO() {
+function todayISO() 
   const d = new Date();
   return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
 }
@@ -128,7 +128,7 @@ function todayISO() {
                                                                                                                                                                                                                     <h2 class="section-title">Kommende Prüfungen ({upcoming.length})</h2>
                                                                                                                                                                                                                       
                                                                                                                                                                                                                         {#if upcoming.length === 0}
-                                                                                                                                                                                                                              <div class="card style="padding: 2rem 1rem" text-center text-muted exam-empty">
+                                                                                                                                                                                                                              <div class="card text-center text-muted exam-empty" style="padding: 2rem 1rem">
                                                                                                                                                                                                                                       <div style="font-size:2rem;margin-bottom:0.5rem">🎓</div>
                                                                                                                                                                                                                                       <p>Keine anstehenden Prüfungen.</p>
                                                                                                                                                                                                                                     </div>
