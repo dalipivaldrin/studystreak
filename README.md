@@ -218,11 +218,19 @@ studystreak/
 
   Reflexionen werden über einen Upsert mit `dateKey` als natürlichem Schlüssel gespeichert – damit gibt es pro Tag genau einen Eintrag. Alle Datenbankzugriffe laufen ausschliesslich serverseitig (`+page.server.js` / Form Actions). Der MongoDB-Client wird als Singleton-Promise gehalten und in Netlify-Functions zwischen Aufrufen wiederverwendet (Cold-Start-Optimierung).
 
-  **Validierung:** Jede Form Action validiert die Eingaben über `validateSession` / `validateReflection` (Pflichtfelder, Längenlimits, Wertebereiche, Datumsplausibilität). Fehler werden über `fail(400, { errors, values })` an die Seite zurückgegeben und dort feldweise angezeigt; die eingegebenen Werte bleiben im Formular erhalten.
+  **Validierung:** Jede Form Action validiert die Eingaben über `validateSession` / `validateReflection` (Pflichtfelder, Längenlimits, Wertebereiche, Datumsplausibilität). Fehler werden über `fail(400, { errors, values })` an die Seite zurückgegeben und dort feldweise angezeigt; die eingegebenen Werte bleiben im Formular erhalten.384
+
+
+  Screenshots:
+
+  ![Prüfungstermine – Übersicht](https://github.com/dalipivaldrin/studystreak/assets/anleitung/07-exams-empty.png)
+
+  ![Prüfungstermine – Formular](https://github.com/dalipivaldrin/studystreak/assets/anleitung/08-exams-form.png)
 
 - **Deployment:** Netlify mit `@sveltejs/adapter-netlify`. Konfiguration in `netlify.toml`; Build-Command `npm run build`, Publish-Verzeichnis `build`. Umgebungsvariablen werden im Netlify-Dashboard hinterlegt.  
   **URL:** https://study-streak.netlify.app
-
+385
+  
 - **Lokale Entwicklung:**
 
 ```bash
