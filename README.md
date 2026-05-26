@@ -146,23 +146,23 @@ Der Prototyp umfasst sechs verlinkte Screens: Home, Modul wählen, Dauer & Detai
 | **Reflexion** | Tägliche Reflexion mit Stimmungs-Rating (1–5) und zwei Textfeldern. Upsert pro Tag. Liste der letzten Reflexionen darunter. |
 
 - **Screenshots der fertigen App:**
-![01-dashboard](./docs/screenshots/01-dashboard.png){width="400"}
+![](./docs/screenshots/.png)
 
-![02-session-new](./docs/screenshots/02-session-new.png){width="400"}
+![02-session-new](./docs/screenshots/02-session-new.png)
 
-![03-session-saved](./docs/screenshots/03-session-saved.png){width="400"}
+![03-session-saved](./docs/screenshots/03-session-saved.png)
 
-![04-stats](./docs/screenshots/04-stats.png){width="400"}
+![04-stats](./docs/screenshots/04-stats.png)
 
-![05-badges](./docs/screenshots/05-badges.png){width="400"}
+![05-badges](./docs/screenshots/05-badges.png)
 
-![06-reflection](./docs/screenshots/06-reflection.png){width="400"}letzten Sessions.
-![08-exam-list](./docs/screenshots/08-exam-list.png){width="400"}
-![07-exam-form](./docs/screenshots/07-exam-form.png){width="400"}
+![06-reflection](./docs/screenshots/06-reflection.png)letzten Sessions.
+![08-exam-list](./docs/screenshots/08-exam-list.png)
+![07-exam-form](./docs/screenshots/07-exam-form.png)
 
-![09-prototypes-8variants](./docs/screenshots/09-prototypes-8variants.png){width="400"}
+![09-prototypes-8variants](./docs/screenshots/09-prototypes-8variants.png)
 
-![10-user-flow](./docs/screenshots/10-user-flow.png){width="400"}
+![10-user-flow](./docs/screenshots/10-user-flow.png)
 
 - **Designentscheidungen:**
   - **Mobile-First:** Die App ist auf Smartphone-Layouts (max-width 480 px) optimiert und nutzt Bottom Navigation, da Lernen mobil und spontan stattfindet
