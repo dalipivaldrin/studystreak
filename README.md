@@ -144,20 +144,17 @@ Der Prototyp umfasst sechs verlinkte Screens: Home, Modul wählen, Dauer & Detai
 | **Reflexion** | Tägliche Reflexion mit Stimmungs-Rating (1–5) und zwei Textfeldern. Upsert pro Tag. Liste der letzten Reflexionen darunter. |
 
 - **Screenshots der fertigen App:**
+![01-dashboard](./docs/screenshots/01-dashboard.png)
 
-  > Home / Dashboard: Dashboard mit Streak-Pill, KPI-Kacheln (Sessions, Level, Wochenminuten), Fortschrittsbalken und Liste der letzten Sessions.
+![02-session-new](./docs/screenshots/02-session-new.png)
 
-  > Session erfassen: Modul-Chips in Modulfarben, Dauer-Presets, optionaler Freitext und Fokus-Sternebewertung. Grüner Speichern-Button immer sichtbar.
+![03-session-saved](./docs/screenshots/03-session-saved.png)
 
-  > Session gespeichert: Erfolgsmeldung nach dem Speichern mit Session-Details, Streak-Anzeige und CTA-Button zum Dashboard.
+![04-stats](./docs/screenshots/04-stats.png)
 
-  > Statistik: Balkendiagramm der Lernzeit pro Tag, filterbar nach Woche / Monat / Gesamt. Modul-Aufschlüsselung mit Farbcode.
+![05-badges](./docs/screenshots/05-badges.png)
 
-  > Badges: Badge-Galerie mit 7 Auszeichnungen. Erreichte Badges farbig, gesperrte mit Graustufen-Filter.
-
-  > Reflexion: Tägliche Reflexion mit Stimmungs-Rating und zwei Freitextfeldern. Nur ein Eintrag pro Tag möglich (Upsert).
-
-  > *(Screenshots werden unter `docs/screenshots/` im Repository hinterlegt – siehe [Dashboard](docs/screenshots/01-dashboard.png), [Session erfassen](docs/screenshots/02-session-new.png), [Session gespeichert](docs/screenshots/03-session-saved.png), [Statistik](docs/screenshots/04-stats.png), [Badges](docs/screenshots/05-badges.png), [Reflexion](docs/screenshots/06-reflection.png))*
+![06-reflection](./docs/screenshots/06-reflection.png)letzten Sessions.
 
 - **Designentscheidungen:**
   - **Mobile-First:** Die App ist auf Smartphone-Layouts (max-width 480 px) optimiert und nutzt Bottom Navigation, da Lernen mobil und spontan stattfindet
