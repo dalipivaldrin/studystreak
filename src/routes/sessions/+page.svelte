@@ -6,6 +6,7 @@ $: sessions = data.sessions || [];
   $: totalCount = data.totalCount || 0;
   $: page = data.page || 1;
   $: totalPages = data.totalPages || 1;
+  $: userModules = data.userModules || [];
 
   // Group sessions by month
 function groupByMonth(sessions) {
@@ -50,7 +51,7 @@ function groupByMonth(sessions) {
                                                   <div class="month-label">{group.label}</div>
                                                             <div class="session-list">
                                                               {#each group.sessions as s (s._id)}
-                                                              <SessionCard session={s} />
+                                                              <SessionCard session={s} modules={userModules} />
                                                               {/each}
                                                                       </div>
                                                                     </div>
