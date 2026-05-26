@@ -1,5 +1,6 @@
 import { fail, redirect } from '@sveltejs/kit';
 import { getReflections, serialize } from '$lib/server/db.js';
+import { validateSession as validateAuthSession } from '$lib/server/auth.js';
 import { validateReflection } from '$lib/utils/validation.js';
 
 function todayKey() {
@@ -8,12 +9,20 @@ function todayKey() {
 		return d.toISOString().slice(0, 10);
 }
 
-export const load = async () => {
+export const load = async ({ cookies }) => {
+		const token = cookies.get('session');
+		const authSession = await validateAuthSession(token).catch(() => null);
+		if (!authSession) throw redirect(302, '/login');
+
 		try {
 					const col = await getReflections();
 					const today = todayKey();
-					const todayDoc = await col.findOne({ dateKey: today });
-					const recent = await col.find({}).sort({ dateKey: -1 }).limit(5).toArray();
+					const todayDoc = await col.findOne({ dateKey: today, userId: authSession.userId });
+					const recent = await col
+						.find({ userId: authSession.userId })
+						.sort({ dateKey: -1 })
+						.limit(5)
+						.toArray();
 					return {
 									today: serialize(todayDoc),
 									recent: serialize(recent),
@@ -25,8 +34,12 @@ export const load = async () => {
 };
 
 export const actions = {
-		save: async ({ request }) => {
-					const formData = await request.formData();
+		save: async ({ request, cookies }) => {
+					const token = cookies.get('session');
+					const authSession = await validateAuthSession(token).catch(() => null);
+					if (!authSession) throw redirect(302, '/login');
+
+			const formData = await request.formData();
 					const { valid, errors, data } = validateReflection(formData);
 					if (!valid) return fail(400, { errors, values: Object.fromEntries(formData) });
 
@@ -34,11 +47,12 @@ export const actions = {
 							const col = await getReflections();
 							const dateKey = data.date.toISOString().slice(0, 10);
 							await col.updateOne(
-								{ dateKey },
+								{ dateKey, userId: authSession.userId },
 								{
 														$set: {
 																					...data,
 																					dateKey,
+																					userId: authSession.userId,
 																					updatedAt: new Date()
 														},
 														$setOnInsert: { createdAt: new Date() }
@@ -52,15 +66,19 @@ export const actions = {
 			}
 		},
 
-		delete: async ({ request }) => {
-					const formData = await request.formData();
+		delete: async ({ request, cookies }) => {
+					const token = cookies.get('session');
+					const authSession = await validateAuthSession(token).catch(() => null);
+					if (!authSession) throw redirect(302, '/login');
+
+			const formData = await request.formData();
 					const id = formData.get('id');
 					if (!id) return fail(400, { errors: { _form: 'Keine ID angegeben.' } });
 
 			try {
 							const { ObjectId } = await import('mongodb');
 							const col = await getReflections();
-							await col.deleteOne({ _id: new ObjectId(id) });
+							await col.deleteOne({ _id: new ObjectId(id), userId: authSession.userId });
 							throw redirect(303, '/reflection');
 			} catch (err) {
 							if (err?.status === 303) throw err;
@@ -68,8 +86,12 @@ export const actions = {
 			}
 		},
 
-		update: async ({ request }) => {
-					const formData = await request.formData();
+		update: async ({ request, cookies }) => {
+					const token = cookies.get('session');
+					const authSession = await validateAuthSession(token).catch(() => null);
+					if (!authSession) throw redirect(302, '/login');
+
+			const formData = await request.formData();
 					const id = formData.get('id');
 					if (!id) return fail(400, { errors: { _form: 'Keine ID angegeben.' } });
 
@@ -80,7 +102,7 @@ export const actions = {
 							const { ObjectId } = await import('mongodb');
 							const col = await getReflections();
 							await col.updateOne(
-								{ _id: new ObjectId(id) },
+								{ _id: new ObjectId(id), userId: authSession.userId },
 								{
 														$set: {
 																					...data,
