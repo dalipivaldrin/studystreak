@@ -1,13 +1,15 @@
 <script>
-	import { MODULES, DURATION_PRESETS, FOCUS_LABELS, getModule } from '$lib/constants.js';
+	import { DURATION_PRESETS, FOCUS_LABELS } from '$lib/constants.js';
 	import { enhance } from '$app/forms';
 	import { page } from '$app/stores';
-
 	export let data;
 	export let form;
 
 	$: session = data.session;
-	$: mod = getModule(session.module);
+	// Nutze userModules aus DB; Fallback auf leeres Array
+	$: MODULES = (data.userModules || []).map(m => ({ id: m._id, name: m.fach, color: m.color }));
+	// Für Anzeige: Modulname aus userModules ableiten
+	$: mod = MODULES.find(m => m.id === session.module) || { id: session.module, name: session.module, color: '#6B7280' };
 
 	let editing = false;
 
@@ -24,17 +26,18 @@
 	function toISO(d) {
 		return new Date(d).toISOString().slice(0, 10);
 	}
-
 	function formatDateTime(d) {
 		return new Date(d).toLocaleString('de-DE', { dateStyle: 'medium', timeStyle: 'short' });
 	}
-
 	function pickDuration(val) {
 		selectedDuration = String(val);
 	}
-
 	function confirmDelete(e) {
 		if (!confirm('Diese Session wirklich löschen?')) e.preventDefault();
+	}
+	function todayISO() {
+		const d = new Date();
+		return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
 	}
 </script>
 
@@ -54,7 +57,7 @@
 	{#if $page.url.searchParams.get('created') === '1'}
 		<div class="alert alert-success">
 			<strong>🎉 Gespeichert!</strong> Deine Session ist erfasst.
-<div class="alert-cta"><a href="/" class="btn btn-primary">→ Zum Dashboard</a></div>
+			<div class="alert-cta"><a href="/" class="btn btn-primary">→ Zum Dashboard</a></div>
 		</div>
 	{/if}
 	{#if $page.url.searchParams.get('updated') === '1'}
@@ -94,20 +97,26 @@
 			{#if errors._form}<div class="alert alert-error">{errors._form}</div>{/if}
 
 			<div class="form-group">
-				<label class="form-label">Modul</label>
-				<div class="chip-row">
-					{#each MODULES as m}
-						<button
-							type="button"
-							class="chip chip-mod"
-							class:is-active={selectedModule === m.id}
-							style:background={selectedModule === m.id ? m.color : ''}
-							style:border-color={selectedModule === m.id ? m.color : ''}
-							style:color={selectedModule === m.id ? 'white' : ''}
-							on:click={() => (selectedModule = m.id)}
-						>{m.name}</button>
-					{/each}
-				</div>
+				<label class="form-label">Modul / Fach</label>
+				{#if MODULES.length === 0}
+					<p class="text-muted" style="font-size:0.85rem">
+						Noch keine Fächer. <a href="/modules">Jetzt hinzufügen →</a>
+					</p>
+				{:else}
+					<div class="chip-row">
+						{#each MODULES as m}
+							<button
+								type="button"
+								class="chip chip-mod"
+								class:is-active={selectedModule === m.id}
+								style:background={selectedModule === m.id ? m.color : ''}
+								style:border-color={selectedModule === m.id ? m.color : ''}
+								style:color={selectedModule === m.id ? 'white' : ''}
+								on:click={() => (selectedModule = m.id)}
+							>{m.name}</button>
+						{/each}
+					</div>
+				{/if}
 				<input type="hidden" name="module" value={selectedModule} />
 				{#if errors.module}<span class="form-error">{errors.module}</span>{/if}
 			</div>
@@ -119,44 +128,40 @@
 						<button type="button" class="chip" class:is-active={selectedDuration === String(d)} on:click={() => pickDuration(d)}>{d} min</button>
 					{/each}
 				</div>
-				<div class="mt-2">
-					<input type="number" class="form-input" style="max-width: 160px" min="5" max="600" bind:value={selectedDuration} />
-				</div>
 				<input type="hidden" name="duration" value={selectedDuration} />
 				{#if errors.duration}<span class="form-error">{errors.duration}</span>{/if}
 			</div>
 
 			<div class="form-group">
-				<label class="form-label" for="date">Datum</label>
-				<input id="date" name="date" type="date" class="form-input" bind:value={dateValue} />
+				<label class="form-label" for="edit-date">Datum</label>
+				<input id="edit-date" name="date" type="date" class="form-input" bind:value={dateValue} max={todayISO()} />
 				{#if errors.date}<span class="form-error">{errors.date}</span>{/if}
 			</div>
 
 			<div class="form-group">
-				<label class="form-label" for="topic">Thema</label>
-				<input id="topic" name="topic" class="form-input" bind:value={topic} maxlength="120" />
+				<label class="form-label" for="edit-topic">Thema (optional)</label>
+				<input id="edit-topic" name="topic" type="text" class="form-input" bind:value={topic} maxlength="200" placeholder="z.B. Kapitel 3 – Vererbung" />
+				{#if errors.topic}<span class="form-error">{errors.topic}</span>{/if}
 			</div>
 
 			<div class="form-group">
-				<label class="form-label">Fokus</label>
-				<div class="star-row">
-					{#each [1,2,3,4,5] as v}
-						<button type="button" class="star-btn" class:is-active={focus >= v} on:click={() => (focus = focus === v ? 0 : v)} aria-label={`${v} Sterne`}>★</button>
+				<label class="form-label">Fokus-Level (optional)</label>
+				<div class="chip-row">
+					{#each [1, 2, 3, 4, 5] as star}
+						<button type="button" class="chip" class:is-active={focus === star} on:click={() => (focus = star)}>
+							{'⭐'.repeat(star)}
+						</button>
 					{/each}
 				</div>
 				<input type="hidden" name="focus" value={focus || ''} />
 			</div>
 
 			<div class="form-group">
-				<label class="form-label" for="notes">Notizen</label>
-				<textarea id="notes" name="notes" class="form-textarea" bind:value={notes} maxlength="500"></textarea>
-				<span class="form-hint">{notes.length}/500</span>
+				<label class="form-label" for="edit-notes">Notizen (optional)</label>
+				<textarea id="edit-notes" name="notes" class="form-input" rows="3" bind:value={notes} maxlength="1000" placeholder="Was hast du gelernt?"></textarea>
 			</div>
 
-			<div class="flex gap-2">
-				<button type="button" class="btn btn-secondary" on:click={() => (editing = false)}>Abbrechen</button>
-				<button type="submit" class="btn btn-success" style="flex: 1">💾 Änderungen speichern</button>
-			</div>
+			<button type="submit" class="btn btn-primary btn-block">💾 Änderungen speichern</button>
 		</form>
 	{/if}
 </div>
