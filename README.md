@@ -1,7 +1,8 @@
 # Projektdokumentation - StudyStreak
 
-> **Live-Demo:** https://clinquant-biscochitos-054278.netlify.app  
-> **Repository:** https://github.com/dalipivaldrin/studystreak
+> **Live-Demo:** https://study-streak.netlify.app  
+> **Repository:** https://github.com/dalipivaldrin/studystreak  
+> **Login für Dozierende:** E-Mail: `dozent@studystreak.ch` | Passwort: `Prototyping2026`
 
 ## Inhaltsverzeichnis
 
@@ -156,7 +157,7 @@ Der Prototyp umfasst sechs verlinkte Screens: Home, Modul wählen, Dauer & Detai
 
   > Reflexion: Tägliche Reflexion mit Stimmungs-Rating und zwei Freitextfeldern. Nur ein Eintrag pro Tag möglich (Upsert).
 
-  > *(Screenshots werden unter docs/screenshots/ im Repository hinterlegt)*
+  > *(Screenshots werden unter `docs/screenshots/` im Repository hinterlegt – siehe [Dashboard](docs/screenshots/01-dashboard.png), [Session erfassen](docs/screenshots/02-session-new.png), [Session gespeichert](docs/screenshots/03-session-saved.png), [Statistik](docs/screenshots/04-stats.png), [Badges](docs/screenshots/05-badges.png), [Reflexion](docs/screenshots/06-reflection.png))*
 
 - **Designentscheidungen:**
   - **Mobile-First:** Die App ist auf Smartphone-Layouts (max-width 480 px) optimiert und nutzt Bottom Navigation, da Lernen mobil und spontan stattfindet
@@ -223,7 +224,7 @@ studystreak/
   **Validierung:** Jede Form Action validiert die Eingaben über `validateSession` / `validateReflection` (Pflichtfelder, Längenlimits, Wertebereiche, Datumsplausibilität). Fehler werden über `fail(400, { errors, values })` an die Seite zurückgegeben und dort feldweise angezeigt; die eingegebenen Werte bleiben im Formular erhalten.
 
 - **Deployment:** Netlify mit `@sveltejs/adapter-netlify`. Konfiguration in `netlify.toml`; Build-Command `npm run build`, Publish-Verzeichnis `build`. Umgebungsvariablen werden im Netlify-Dashboard hinterlegt.  
-  **URL:** https://clinquant-biscochitos-054278.netlify.app
+  **URL:** https://study-streak.netlify.app
 
 - **Lokale Entwicklung:**
 
@@ -252,7 +253,7 @@ npm run dev
 
 ### 3.5 Validate
 
-**URL der getesteten Version:** https://clinquant-biscochitos-054278.netlify.app (getestet am 14. Mai 2026)
+**URL der getesteten Version:** https://study-streak.netlify.app (getestet am 14. Mai 2026)
 
 **Ziele der Prüfung:**
 - Ist der Kernworkflow „Lernsession in unter 30 Sekunden erfassen" ohne Anleitung auffindbar und durchführbar?
@@ -374,6 +375,24 @@ Folgende Erweiterungen gehen über den geforderten Mindestumfang (1 Hauptworkflo
   - Backend: Form Actions in allen `+page.server.js`-Dateien
 - **Referenz:** Kap. 3.4.2 (Besondere Entscheidungen)
 - **Aus Evaluation abgeleitet?** Nein – technische Designentscheidung.
+
+### 4.7 Prüfungstermin-Verwaltung (Exams)
+
+- **Beschreibung & Nutzen:** Eigene Route `/exams` zur Verwaltung von Prüfungsterminen. Studierende können anstehende Prüfungen mit Fach, Datum, Ort und Bemerkungen erfassen und löschen. Das Dashboard zeigt die nächsten drei Prüfungen direkt als farbcodierte Dringlichkeitskarten (rot = ≤ 3 Tage, orange = ≤ 7 Tage, grün = mehr als 7 Tage). Schafft Überblick über bevorstehende Prüfungen ohne separate App.
+- **Wo umgesetzt:**
+  - Frontend: `src/routes/exams/+page.svelte` (Formular, Upcoming/Past-Liste, Dringlichkeits-Farbcodes)
+  - Backend: `src/routes/exams/+page.server.js` (CRUD via Form Actions, Collection `exams`)
+  - Dashboard: `src/routes/+page.svelte` (Vorschau der nächsten 3 Prüfungen mit Countdown)
+- **Referenz:** Kap. 3.4.1 (Dashboard zeigt Prüfungsvorschau)
+- **Aus Evaluation abgeleitet?** Nein – erweitert die Zielgruppe und ergänzt das Session-Logging um Zielorientierung.
+
+### 4.8 Modulverwaltung (eigene Module anlegen)
+
+- **Beschreibung & Nutzen:** Über `/modules` können Studierende eigene Lernmodule mit Namen, Kürzel und Farbe anlegen, die anschliessend beim Session-Erfassen als Chips auswählbar sind. Damit ist die App nicht mehr auf vordefinierte Module beschränkt und deckt beliebige Studiengänge ab.
+- **Wo umgesetzt:**
+  - Frontend: `src/routes/modules/+page.svelte` (Verwaltungsseite)
+  - Backend: `src/routes/modules/+page.server.js`, `src/routes/api/modules/+server.js` (REST-Endpunkt), `src/lib/modulkatalog.js` (Hilfsbibliothek), `src/lib/server/db.js` (`getModules()`)
+- **Aus Evaluation abgeleitet?** Nein – technische Erweiterung für mehr Flexibilität.
 
 ## 5. Projektorganisation [Optional]
 
