@@ -6,6 +6,7 @@
   $: stats = data.stats;
   $: recentSessions = data.recentSessions || [];
   $: upcomingExams = data.upcomingExams || [];
+  $: userModules = data.userModules || [];
   $: weeklyGoalDays = 5;
   $: weeklyGoalReached = Math.min(weeklyGoalDays, stats.distinctDays || 0);
   $: weeklyGoalPct = Math.min(100, (weeklyGoalReached / weeklyGoalDays) * 100);
@@ -115,7 +116,7 @@
   {:else}
     <div class="session-list">
       {#each recentSessions as s (s._id)}
-        <SessionCard session={s} />
+        <SessionCard session={s} modules={userModules} />
       {/each}
     </div>
   {/if}
