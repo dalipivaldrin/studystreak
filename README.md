@@ -241,6 +241,11 @@ studystreak/
   
 - **Lokale Entwicklung:**
 
+
+### Systemanforderungen:
+- Node.js 18+ (getestet mit 20.x)
+- - npm 9+ (oder pnpm 8.x)
+  - - SvelteKit 2.x
 ```bash
 # 1. Repo klonen
 git clone https://github.com/dalipivaldrin/studystreak
