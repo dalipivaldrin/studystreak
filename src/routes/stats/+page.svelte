@@ -26,8 +26,7 @@
 			: range === 'monat'
 				? weeklyMinutes(sessions, 5)
 				: weeklyMinutes(sessions, 12);
-	$: chartLabelEvery = range === 'gesamt' ? 2 : 1;
-
+$: chartLabelEvery = range === 'gesamt' ? 1 : 1;
 	// Modul-Aggregation passt sich an den Range an
 	$: moduleDays = range === 'woche' ? 7 : range === 'monat' ? 30 : 365;
 	$: byModule = minutesByModule(sessions, moduleDays);
