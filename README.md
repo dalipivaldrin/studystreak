@@ -158,6 +158,14 @@ Der Prototyp umfasst sechs verlinkte Screens: Home, Modul wählen, Dauer & Detai
 
 ![06-reflection](./docs/screenshots/06-reflection.png)letzten Sessions.
 
+![07-exam-form](./docs/screenshots/07-exam-form.png)
+
+![08-exam-list](./docs/screenshots/08-exam-list.png)
+
+![09-prototypes-8variants](./docs/screenshots/09-prototypes-8variants.png)
+
+![10-user-flow](./docs/screenshots/10-user-flow.png)
+
 - **Designentscheidungen:**
   - **Mobile-First:** Die App ist auf Smartphone-Layouts (max-width 480 px) optimiert und nutzt Bottom Navigation, da Lernen mobil und spontan stattfindet
   - **Bottom Navigation:** Etabliertes Muster für mobile Apps; alle Hauptbereiche mit dem Daumen erreichbar (Thumb-Zone-freundlich)
