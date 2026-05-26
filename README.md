@@ -2,7 +2,7 @@
 
 > **Live-Demo:** https://study-streak.netlify.app  
 > **Repository:** https://github.com/dalipivaldrin/studystreak  
-> **Login für Dozierende:** E-Mail: `dozent@studystreak.ch` | Passwort: `Prototyping2026`
+> **Login für Dozierende:** Konto selbst registrieren unter https://study-streak.netlify.app/login (kostenlos, kein E-Mail-Bestätigung nötig)
 
 ## Inhaltsverzeichnis
 
