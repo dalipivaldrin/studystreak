@@ -91,6 +91,8 @@ Die Durchführung erfolgt phasenbasiert nach der im Modul behandelten Methodik (
 
 - **Skizzen:** Crazy 8s auf Papier (Abb. 1) sowie ausgearbeitete Happy-Path-Skizze der gewählten Variante 2 (Abb. 2) – drei aufeinanderfolgende Mobile-Screens, jeder Pfeil entspricht einem Tap.
 
+- ![Crazy 8s & Wireframes](docs/screenshots/11-prototypes-8variants.png)
+
 ### 3.3 Decide
 
 **Gewählte Variante & Begründung:** Variante 2 – Preset-Tap (3 Taps)
