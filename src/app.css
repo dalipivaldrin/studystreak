@@ -104,9 +104,10 @@ a:hover { text-decoration: underline; }
 
 .app-shell > header {
 	flex-shrink: 0;
+	z-index: 15;
 }
 
-.app-shell > :global(slot) {
+.app-content {
 	flex: 1;
 	overflow-y: auto;
 	overflow-x: hidden;
@@ -114,8 +115,9 @@ a:hover { text-decoration: underline; }
 	width: 100%;
 }
 
-.bottom-nav {
+.app-shell > .bottom-nav {
 	flex-shrink: 0;
+	z-index: 20;
 }
 
 /* ===== Page Header ===== */
