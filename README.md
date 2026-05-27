@@ -207,8 +207,9 @@ Dieser Prototyp diente als **direkte Gestaltungsgrundlage** für die Implementie
 ```
 Home (Dashboard)
 ├─ Streak-Pill (Header)
-├─ KPI-Kacheln: Sessions, Level, Wochenminuten, nächste Prüfungen
-├─ Letzte 5 Sessions (klickbar)
+├─ KPI-Kacheln: Sessions, Level, Wochenminuten
+├─ Vorschau: Nächste 3 Prüfungen (mit Dringlichkeitsfarbcodes)
+├─ Letzte 5 Sessions (klickbar für Bearbeitung)
 └─ + Lernsession erfassen (Button)
 
 Lernsession erfassen (/sessions/new)
@@ -218,15 +219,9 @@ Lernsession erfassen (/sessions/new)
 ├─ Fokus-Rating (optional, 1–5 Sterne)
 └─ Session speichern (Button)
 
-Session gespeichert (Bestätigungsscreen)
-├─ Grünes Häkchen-Icon (Erfolgsbestätigung)
-├─ Streak-Update (z. B. „Dein Streak: 7 Tage!")
-├─ Badge-Notification (falls neu freigeschalten)
-└─ → Zum Dashboard (Link)
-
-Session Detail & Edit (/sessions/[id])
+Session Bearbeiten (/sessions/[id])
 ├─ Alle Felder editierbar (Modul, Dauer, Thema, Fokus, Notizen)
-├─ Bearbeiten-Button
+├─ Speichern-Button
 ├─ Löschen-Button
 └─ ← Zurück zum Dashboard (Link)
 
@@ -236,21 +231,21 @@ Statistik (/stats)
 ├─ Modul-Aufschlüsselung (Farbcodes, Summen)
 └─ Wochenziel-Fortschrittsbalken
 
+Badge-Galerie (/badges) ← NEU in Navigation!
+├─ 7 Badges in 2x4-Grid
+├─ Freigeschalten: Farbig + Beschreibung
+├─ Gesperrt: Graustufen + „Noch nicht erreicht"
+└─ Bedingungen für jedes Badge angezeigt
+
 Tägliche Reflexion (/reflection)
 ├─ Stimmungs-Rating (1–5, interaktiv)
 ├─ „Was lief gut?" (Freitext, max. 1000 Zeichen)
 ├─ „Was will ich verbessern?" (Freitext, max. 1000 Zeichen)
 └─ Speichern-Button (Upsert pro Tag)
 
-Badge-Galerie (/badges)
-├─ 7 Badges in 2x4-Grid
-├─ Freigeschalten: Farbig + Beschreibung
-├─ Gesperrt: Graustufen + „Noch nicht erreicht"
-└─ Hover-Info mit Bedingungen
-
 Prüfungstermine (/exams)
 ├─ Formular: Fach, Datum, Ort, Bemerkungen
-├─ Liste: Bevorstehend (mit Countdown) / Vergangen (archiviert)
+├─ Liste: Bevorstehend (mit Dringlichkeitsfarbcodes) / Vergangen (archiviert)
 └─ Edit & Delete pro Prüfung
 ```
 
@@ -268,7 +263,7 @@ Prüfungstermine (/exams)
 **Designentscheidungen**
 
 - **Mobile-First Layout:** Optimiert für Smartphone (max-width 480 px). Lernen findet mobil und spontan statt; Daumen-Zone-Freundlichkeit ist kritisch.
-- **Bottom Navigation:** Etabliertes Muster für Mobile Apps (4 Tabs: Home, Statistik, Badges, Reflexion). Alle Hauptbereiche mit dem Daumen erreichbar ohne die App neu zu greifen.
+- **Bottom Navigation:** Etabliertes Muster für Mobile Apps (5 Tabs: Home, Statistik, Badges, Reflexion, Prüfungen). Alle Hauptbereiche mit dem Daumen erreichbar ohne die App neu zu greifen.
 - **Chip-Buttons für Modulwahl & Dauer:** Schnelles Antippen ohne Tastatur-Ablenkung; auch einhändig bedienbar. Farbliche Codierung macht Module schnell erkennbar.
 - **Gamification prominent platziert:** Streak immer im Header sichtbar; Erfolgsmeldung nach dem Speichern als grüner Bestätigungsscreen mit Badge-Benachrichtigung.
 - **Farbkonzept:** 
@@ -311,7 +306,7 @@ src/
 │   │   ├── gamification.js              ← Streak, Level, Badge-Berechnung
 │   │   └── validation.js                ← Server-Validierung (validateSession, validateReflection)
 │   └── components/
-│       ├── BottomNav.svelte             ← Navigation (4 Tabs)
+│       ├── BottomNav.svelte             ← Navigation (5 Tabs: Home, Statistik, Badges, Reflexion, Prüfungen)
 │       ├── StreakDisplay.svelte         ← Streak-Pill
 │       ├── StatBadge.svelte             ← KPI-Kachel
 │       ├── SessionCard.svelte           ← Session-Kartenelement
