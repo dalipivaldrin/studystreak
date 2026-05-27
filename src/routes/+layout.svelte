@@ -209,12 +209,6 @@
   @media (min-width: 1025px) {
     :global(.app-shell) {
       max-width: 900px;
-      padding-bottom: 0 !important;
-    }
-
-    /* Slot-Inhalt auf Desktop etwas Abstand geben */
-    :global(.app-shell > :not(header):not(.bottom-nav)) {
-      padding-top: 1rem;
     }
 
     .brand {
