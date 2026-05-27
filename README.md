@@ -128,8 +128,8 @@ Der Prototyp umfasst sechs verlinkte Screens: Home, Modul wählen, Dauer & Detai
 |--------|-------------|
 | ![01-dashboard](./docs/screenshots/01-dashboard.png) | **Dashboard:** Streak-Pill im Header (1 Tag), KPI-Kacheln (Sessions gesamt, Level, Wochenminuten), Fortschrittsbalken zum nächsten Level, Liste der letzten 5 Sessions. |
 | ![02-session-new](./docs/screenshots/02-session-new.png) | **Session erfassen:** Modul-Chips (farblich), Dauer-Presets (15/30/45/60 min), optionaler Freitext für Thema und Fokus-Rating (1–5). |
-| ![03-stats](./docs/screenshots/04-stats.png) | **Statistik-Seite:** Balkendiagramm (Lernzeit/Tag, Woche/Monat/Gesamt), Modul-Aufschlüsselung (farbig), Tab-Auswahl für Zeiträume. |
-| ![04-reflection](./docs/screenshots/06-reflection.png) | **Tägliche Reflexion:** Stimmungs-Rating (1–5), zwei Freitextfelder (Upsert pro Tag). Erfolgs-Bestätigung nach Speichern. |
+| ![03-stats](./docs/screenshots/03-stats.png) | **Statistik-Seite:** Balkendiagramm (Lernzeit/Tag, Woche/Monat/Gesamt), Modul-Aufschlüsselung (farbig), Tab-Auswahl für Zeiträume. |
+| ![04-reflection](./docs/screenshots/04-reflection.png) | **Tägliche Reflexion:** Stimmungs-Rating (1–5), zwei Freitextfelder (Upsert pro Tag). Erfolgs-Bestätigung nach Speichern. |
 
 > Hinweis: Hier wird der Prototyp beschrieben, nicht das Mockup.
 
