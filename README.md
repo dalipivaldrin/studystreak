@@ -130,11 +130,9 @@ Der Prototyp umfasst sechs verlinkte Screens: Home, Modul wählen, Dauer & Detai
 | ![02-session-new](./docs/screenshots/02-session-new.png) | **Session erfassen:** Modul-Chips (farblich), Dauer-Presets (15/30/45/60 min), optionaler Freitext für Thema und Fokus-Rating (1–5). |
 | ![03-stats](./docs/screenshots/03-stats.png) | **Statistik-Seite:** Balkendiagramm (Lernzeit/Tag, Woche/Monat/Gesamt), Modul-Aufschlüsselung (farbig), Tab-Auswahl für Zeiträume. |
 | ![04-reflection](./docs/screenshots/04-reflection.png) | **Tägliche Reflexion:** Stimmungs-Rating (1–5), zwei Freitextfelder (Upsert pro Tag). Erfolgs-Bestätigung nach Speichern. |
+| ![05-exam-form](./docs/screenshots/05-exam-form.png) | **Formular zur Erfassung eines Moduls mit Prüfung/Klausur. Ermöglicht Auswahl zwischen Dauer-Presets (15/30/45/60 min) und optionalen Fokus-Einstellungen (1-5). |
 
 #### 3.4.2 Mockups & Prototypen
-
-| ![05-exam-form](./docs/screenshots/05-exam-form.png) | ⟹=Exam-Formular⟹= Formular zur Erfassung eines Moduls mit Prüfung/Klausur. Ermöglicht Auswahl zwischen Dauer-Presets (15/30/45/60 min) und optionalen Fokus-Einstellungen (1-5). |
-| Screen | Beschreibung |
 |---------|-----------|
 | ![07-prototypes](./docs/screenshots/07-prototypes-8variants.png) | ⟹=Crazy 8s Varianten⟹= Acht unterschiedliche Lösungsvarianten zur Session-Erfassung, skizziert nach der Crazy-8s-Methode. Zeigt verschiedene Ansätze für die Benutzerinteraktion und Bedienbarkeit. |
 | ![Figma Prototyp](https://www.figma.com/proto/studystreak) | ⟹=Interaktiver Figma-Prototyp⟹= Verlinkter, funktionsfähiger Prototyp mit 6 Screens (Home, Modul wählen, Dauer & Details, Gesp eichert, Statistik, Reflexion). Diente als Entscheidungsgrundlage für die finale Implementierung. |
