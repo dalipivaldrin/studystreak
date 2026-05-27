@@ -3,9 +3,9 @@
   const items = [
     { href: '/', icon: '🏠', label: 'Home' },
     { href: '/stats', icon: '📊', label: 'Statistik' },
-    { href: '/sessions', icon: '📚', label: 'Sessions' },
-    { href: '/exams', icon: '🎓', label: 'Prüfungen' },
-    { href: '/reflection', icon: '📝', label: 'Reflexion' }
+    { href: '/badges', icon: '🏆', label: 'Badges' },
+    { href: '/reflection', icon: '📝', label: 'Reflexion' },
+    { href: '/exams', icon: '🎓', label: 'Prüfungen' }
   ];
   $: pathname = $page.url.pathname;
   function isActive(href) {
