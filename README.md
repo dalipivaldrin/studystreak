@@ -122,6 +122,16 @@ Der Prototyp umfasst sechs verlinkte Screens: Home, Modul wählen, Dauer & Detai
 
 #### 3.4.1. Entwurf (Design)
 
+**Wichtigste Screens der fertigen App:**
+
+| Screen | Beschreibung |
+|--------|-------------|
+| ![01-dashboard](./docs/screenshots/01-dashboard.png) | **Dashboard:** Streak-Pill im Header (1 Tag), KPI-Kacheln (Sessions gesamt, Level, Wochenminuten), Fortschrittsbalken zum nächsten Level, Liste der letzten 5 Sessions. |
+| ![02-session-new](./docs/screenshots/02-session-new.png) | **Session erfassen:** Modul-Chips (farblich), Dauer-Presets (15/30/45/60 min), optionaler Freitext für Thema und Fokus-Rating (1–5). |
+| ![03-session-saved](./docs/screenshots/03-session-saved.png) | **Session gespeichert:** Erfolgsmeldung mit Session-Detailkarte inkl. Modul-Farbe, Dauer, Fokus-Notizen. Streak-Anzeige, Buttons für Löschen und neue Session. |
+| ![04-stats](./docs/screenshots/04-stats.png) | **Statistik-Seite:** Balkendiagramm (Lernzeit/Tag, Woche/Monat/Gesamt), Modul-Aufschlüsselung (farbig), Tab-Auswahl für Zeiträume. |
+| ![06-reflection](./docs/screenshots/06-reflection.png) | **Tägliche Reflexion:** Stimmungs-Rating (1–5), zwei Freitextfelder (Upsert pro Tag). Erfolgs-Bestätigung nach Speichern. |
+
 > Hinweis: Hier wird der Prototyp beschrieben, nicht das Mockup.
 
 - **Informationsarchitektur:**
