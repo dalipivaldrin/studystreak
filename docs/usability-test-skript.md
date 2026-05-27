@@ -102,7 +102,7 @@ Im Anschluss an die Aufgaben bitte folgende Fragen besprechen und Antworten noti
 ## Feedback Grid
 
 **Name/Code Testperson:** Marko Vukcevic  
-**Version Prototyp:** https://clinquant-biscochitos-054278.netlify.app (Commit 513897b)  
+**Version Prototyp:** https://study-streak.netlify.app/stats (Commit 513897b)  
 **Datum:** 14. Mai 2026  
 
 | 😊 Was hat gut funktioniert? Was hat gefallen? | 😟 Was hat nicht funktioniert? Was hat gestört? Was hat gefehlt? |
