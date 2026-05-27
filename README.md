@@ -29,8 +29,7 @@
 
 - **Problem:** Studierende im ersten Studienjahr an der ZHAW müssen parallel mehrere Module (Prototyping, ITPM, Statistik, Englisch u. a.) bearbeiten. Ein häufig beobachtetes Muster: In den ersten Wochen des Semesters wird wenig konsistent gelernt, kurz vor den Prüfungen entsteht eine chaotische, stressige Last-Minute-Phase. Die Lernpsychologie (Spacing Effect nach Ebbinghaus) zeigt, dass verteiltes Lernen signifikant bessere Langzeitergebnisse liefert als Cramming – dieses Wissen wird jedoch selten umgesetzt, weil ein einfaches, niedrigschwelliges Werkzeug fehlt, um Lerngewohnheiten zu etablieren und kleine tägliche Erfolge sichtbar zu machen.
 - **Ziele:**
-  - Regelmässiges, verteiltes Lernen durch Gamification-Elemente fördern (Streaks, Badges, XP, Level)
-  - Lernsessions in unter 30 Sekunden erfassen können
+  - Regelmässiges, verteiltes Lernen durch Gamification-Elemente fördern (Streaks, Level, XP)  - Lernsessions in unter 30 Sekunden erfassen können
   - Lernverhalten über Zeit sichtbar machen (Statistiken, Wochenziele pro Modul)
   - Intrinsische Motivation durch sichtbaren Fortschritt und Sofortbelohnung stärken
 - **Primäre Zielgruppe:** ZHAW-Studierende im 1.–3. Semester Informatik und Wirtschaftsinformatik, die mehrere Module parallel betreuen und ihren Lernfortschritt strukturieren möchten.
@@ -44,9 +43,7 @@
   - **Wöchentliche Ziele pro Modul:** z. B. „mindestens 180 Minuten Statistik pro Woche", inklusive Status (aktiv / erledigt).
   - **Tägliche Reflexion:** Stimmung (1–5), „Was lief gut?" und „Was will ich verbessern?". Genau ein Eintrag pro Tag (Upsert).
   - **Dashboard:** KPI-Kacheln mit aktuellem Streak, Wochenminuten, Level mit Fortschrittsbalken, Anzahl Sessions und zuletzt erfassten Sessions.
-  - **Statistik-Seite:** Balkendiagramm der letzten 14 Tage, Minuten pro Modul der letzten 30 Tage, Badge-Galerie mit erreichten und noch gesperrten Auszeichnungen.
-  - **Gamification:** Streak-Logik (Tage in Folge), Level-System (alle 300 Minuten Lernzeit ein neues Level), sieben regelbasierte Badges (z. B. „3-Tage-Streak", „10 Stunden Lernzeit", „50 Sessions").
-- **Annahmen:** Wenn das Dokumentieren fast nichts kostet (< 30 Sekunden) und der Fortschritt sofort sichtbar wird, entsteht eine stabile Lerngewohnheit.
+  - **Gamification:** Streak-Logik (Tage in Folge), Level-System (alle 300 Minuten Lernzeit ein neues Level)- **Annahmen:** Wenn das Dokumentieren fast nichts kostet (< 30 Sekunden) und der Fortschritt sofort sichtbar wird, entsteht eine stabile Lerngewohnheit.
 - **Abgrenzung:**
   - Kein Live-Pomodoro-Timer (andere Apps lösen das besser)
   - Kein soziales Netzwerk (keine Freundeslisten, keine öffentlichen Rankings)
