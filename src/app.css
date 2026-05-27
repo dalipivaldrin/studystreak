@@ -1,7 +1,7 @@
-/* StudyStreak â€“ Globales Stylesheet */
+/* StudyStreak – Globales Stylesheet */
 
 :root {
-	/* Farbsystem (vom Mockup Ã¼bernommen) */
+	/* Farbsystem (vom Mockup übernommen) */
 	--c-primary: #3A5ACC;
 	--c-primary-hover: #2d47a8;
 	--c-primary-light: #e8edfa;
@@ -91,7 +91,7 @@ a:hover { text-decoration: underline; }
 	min-height: 100vh;
 	margin: 0 auto;
 	background: var(--c-bg);
-	padding-bottom: 88px; /* Platz fÃ¼r Bottom Nav */
+	padding-bottom: 88px; /* Platz für Bottom Nav */
 	position: relative;
 }
 
@@ -120,7 +120,6 @@ a:hover { text-decoration: underline; }
 
 .page-content {
 	padding: var(--spacing-3) var(--spacing-4);
-	overflow-x: hidden;
 }
 
 /* ===== Cards ===== */
@@ -210,7 +209,7 @@ a:hover { text-decoration: underline; }
 
 /* ===== Form ===== */
 .form-group {
-	margin-bottom: var(--spacing-3);
+	margin-bottom: var(--spacing-4);
 }
 
 .form-label {
@@ -258,7 +257,7 @@ a:hover { text-decoration: underline; }
 }
 
 .form-textarea {
-	min-height: 110px;
+	min-height: 80px;
 	resize: vertical;
 	font-family: inherit;
 }
@@ -665,7 +664,7 @@ a:hover { text-decoration: underline; }
 	justify-content: center;
 }
 
-/* Letztes Badge zentriert wenn ungerade Anzahl â€“ gleiche GrÃ¶sse wie andere */
+/* Letztes Badge zentriert wenn ungerade Anzahl – gleiche Grösse wie andere */
 .badge-card:last-child:nth-child(odd) {
 	margin-left: auto;
 	margin-right: auto;
@@ -742,8 +741,8 @@ a:hover { text-decoration: underline; }
 	margin-top: 4px;
 }
 
-/* ===== Bottom Nav â€“ Responsive Fix ===== */
-/* Ãœberschreibe die alten Bottom-Nav Styles fÃ¼r bessere ResponsivitÃ¤t */
+/* ===== Bottom Nav – Responsive Fix ===== */
+/* Überschreibe die alten Bottom-Nav Styles für bessere Responsivität */
 .bottom-nav {
 		position: fixed;
 		bottom: 0;
@@ -763,7 +762,7 @@ a:hover { text-decoration: underline; }
 
 /* ===== Responsive Layout ===== */
 
-/* Mobile: max 480px â€“ standard mobile view */
+/* Mobile: max 480px – standard mobile view */
 @media (max-width: 480px) {
 		html {
 					font-size: 15px;
@@ -781,7 +780,7 @@ a:hover { text-decoration: underline; }
 		}
 }
 
-/* Tablet: 481px â€“ 1024px */
+/* Tablet: 481px – 1024px */
 @media (min-width: 481px) and (max-width: 1024px) {
 		.app-shell {
 					max-width: 720px;
