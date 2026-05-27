@@ -201,7 +201,7 @@ Dieser Prototyp diente als **direkte Gestaltungsgrundlage** für die Implementie
 
 ### 3.4 Prototype
 
-#### 3.4.1 Design (Entwurf)
+#### 3.4.1 Entwurf (Design)
 
 **Informationsarchitektur**
 
@@ -738,33 +738,24 @@ Folgende Erweiterungen gehen über den geforderten Mindestumfang hinaus und wurd
 - **Claude** (Anthropic, claude.ai) – Hauptwerkzeug für Code-Generierung, Dokumentation, Sparring
 - **GitHub Copilot** (im VS Code) – Code-Vervollständigung, Snippets
 
-### 6.2 Zweck & Umfang
+### 6.2 Prompt-Vorgehen
 
-**Übung 10 (Mockup & Ideenfindung):**
+**Zweck & Umfang des KI-Einsatzes:**
+
+*Übung 10 (Mockup & Ideenfindung):*
 - Formulierung der Crazy-8s-Beschreibungen
 - Sparringspartner für die Variantenbewertung
 - Sprachliche Überarbeitung der Dokumentation
 - Erstellung der README-Vorlage basierend auf Figma-Mockup
 
-**Übung 11 (Prototyp & Implementierung):**
+*Übung 11 (Prototyp & Implementierung):*
 - Generierung des **SvelteKit-Grundgerüsts** (Routen-Struktur, Komponenten, MongoDB-Anbindung) auf Basis der vom Autor definierten Architektur
-  - Vor KI: Architektur-Entscheidungen (Bottom-Nav, Module-System, Gamification-Logik) vom Autor
-  - KI-Input: Skeleton-Code für alle Routes, Components, DB-Connection
-  - Autor-Input: Code-Review, Anpassungen an spezifische Anforderungen, Integration in Repository
-  
 - Aufbau der **CSS-Design-Tokens** entlang des selbst erstellten Figma-Mockups
-  - Vor KI: Farbkonzept, Layout-Grid vom Autor
-  - KI-Input: CSS-Variablen-Struktur, responsive Breakpoints
-  - Autor-Input: Fine-tuning, Mobile-optimierungen
-
 - Sprachliche Glättung des Dokumentationsteils (README, Usability-Test-Protokoll)
-  - Vor KI: Rohe Notizen, Beobachtungen vom Autor
-  - KI-Input: Strukturierung, Kohärenz, Tonalität
-  - Autor-Input: Fakten-Überprüfung, Spezifika
 
-### 6.3 Eigene Leistung (Abgrenzung)
+**Eigene Leistung (Abgrenzung):**
 
-**Konzeptionell (100% Autor):**
+*Konzeptionell (100% Autor):*
 - Projektidee, Zielgruppenanalyse
 - Crazy-8s-Skizzen (Stift auf Papier) – alle 8 Varianten
 - Variantenwahl (Preset-Tap) mit Begründung
@@ -774,19 +765,13 @@ Folgende Erweiterungen gehen über den geforderten Mindestumfang hinaus und wurd
 - Farbkonzept & Designentscheidungen
 - Usability-Test: Durchführung, Beobachtungen, Auswertung
 
-**Technisch (Autor mit KI-Unterstützung):**
+*Technisch (Autor mit KI-Unterstützung):*
 - **Architektur:** Routen-Struktur, Datenmodell, Trennung von Business-Logic und UI (Autor)
-- **Code:** KI hat Vorschläge gemacht, Autor hat:
-  - ✅ Code gegenlesen
-  - ✅ Angepasst an spezifische Anforderungen (z. B. Streak-Edge-Cases, Validierungs-Bedingungen)
-  - ✅ Integriert ins Repository
-  - ✅ Manuell getestet (lokaler Dev-Server, produktive URL)
-- **Tests:** Edge-Case-Tests für Streak um Mitternacht, für Wochengrenze, für MongoDB-Connection-Pooling
-- **Deployment:** MongoDB-Atlas-Setup, Netlify-Konfiguration, Umgebungsvariablen – vollständig Autor
+- **Code:** KI hat Vorschläge gemacht, Autor hat gegenlesen, angepasst, integriert und manuell getestet
+- **Tests:** Edge-Case-Tests für Streak um Mitternacht, für Wochengrenze, für MongoDB-Connection-Pooling (Autor)
+- **Deployment:** MongoDB-Atlas-Setup, Netlify-Konfiguration, Umgebungsvariablen (Autor)
 
-### 6.4 Prompt-Vorgehen
-
-**Allgemeiner Ansatz:**
+**Allgemeines Prompt-Vorgehen:**
 - Kontext mitgeben: Aufgabenstellung, Mockup, vorige Entscheidungen
 - Konkrete Anfragen stellen (nicht zu offen)
 - Output überprüfen, Fehler korrigieren, iterieren
@@ -801,14 +786,14 @@ Folgende Erweiterungen gehen über den geforderten Mindestumfang hinaus und wurd
 2. **CSS-Responsive-Breakpoints:**
    - Autor vorgab: „Mobile-first, max-width 480px, Daumen-Zone-freundlich"
    - KI schlug vor: CSS-Variablen für spacing, flexbox-Grids
-   - Autor übernahm: Anpassungen für Readability, Font-Sizes verfeinert
+   - Autor übernahm und verfeinerte: Anpassungen für Readability, Font-Sizes ✅
 
 3. **README-Dokumentation:**
    - Autor gab Rohdaten: Testtranskripta, Screenshots
    - KI strukturierte: Tabellen, Klartext, Konsistenz
    - Autor überprüfte: Fakte korrekt? Terminologie konsistent? ✅ Ja
 
-### 6.5 Reflexion über KI-Einsatz
+### 6.3 Reflexion
 
 **Nutzen:**
 - ✅ **Schnelligkeit:** SvelteKit-Grundgerüst hätte Tage gedauert, ging in Stunden
@@ -816,16 +801,8 @@ Folgende Erweiterungen gehen über den geforderten Mindestumfang hinaus und wurd
 - ✅ **Dokumentation:** Text fliesst besser, weniger Grammatikfehler
 
 **Grenzen & Risiken:**
-- ⚠️ **Code-Qualität:** KI-Code muss **kritisch überprüft** werden. Beispiele:
-  - Falsche Behandlung des Streaks an Tagesgrenzen (Mitternacht)
-  - Falsche ObjectId-Behandlung wenn Format ungültig
-  - MongoDB-Client nicht gepoolt (Cold-Start-Probleme)
-  - → Alle mussten vom Autor korrigiert werden
-  
-- ⚠️ **Verantwortung:** Inhaltliche und technische Verantwortung bleibt **allein beim Autor**
-  - Code-Review ist Pflicht
-  - Tests sind Pflicht (auch wenn KI Tests vorgeschlagen hat)
-  - Deployment-Entscheidungen (MongoDB, Netlify) sind Autor-Entscheidungen
+- ⚠️ **Code-Qualität:** KI-Code muss **kritisch überprüft** werden (Beispiele: falsche Streak-Berechnung an Tagesgrenzen, MongoDB-Client nicht gepoolt für Cold-Start-Probleme)
+- ⚠️ **Verantwortung:** Inhaltliche und technische Verantwortung bleibt **allein beim Autor** (Code-Review, Tests, Deployment-Entscheidungen sind Autor-Aufgabe)
 
 **Qualitätssicherung:**
 - Manual Code Reviews (vor jedem Commit)
