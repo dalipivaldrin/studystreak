@@ -184,9 +184,15 @@ export function minutesByModule(sessions, days = 30) {
 	cutoff.setDate(cutoff.getDate() - days);
 	cutoff.setHours(0, 0, 0, 0);
 	const map = {};
+	// Regex für MongoDB ObjectId (24 hex characters)
+	const objectIdRegex = /^[a-f0-9]{24}$/i;
+
 	for (const s of sessions) {
 		if (new Date(s.date) >= cutoff) {
-			map[s.module] = (map[s.module] || 0) + (s.duration || 0);
+			// Skip ObjectIds (fehlerhafte Daten) - nur echte Module zählen
+			if (!objectIdRegex.test(s.module)) {
+				map[s.module] = (map[s.module] || 0) + (s.duration || 0);
+			}
 		}
 	}
 	return Object.entries(map)
