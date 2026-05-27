@@ -21,7 +21,7 @@
 | Anforderung | Status | Nachweis |
 |---|---|---|
 | Klar verständliche Bezeichnungen | ✅ Erfüllt | Deutschsprachige UI, konsistente Terminologie |
-| Nachvollziehbare Navigation | ✅ Erfüllt | Bottom Navigation mit 4 Tabs (Home, Statistik, Badges, Reflexion) |
+| Nachvollziehbare Navigation | ✅ Erfüllt | Bottom Navigation mit 5 Tabs (Home, Statistik, Badges, Reflexion, Prüfungen) |
 | Sichtbares Feedback (Erfolg/Fehler) | ✅ Erfüllt | Feldweise Fehleranzeige, Erfolgsmeldung nach Session-Speicherung |
 | Mockup als Grundlage | ✅ Erfüllt | Figma-Prototyp mit 6 verlinkten Screens (README Kap. 3.3) |
 | Mobile-first Design | ✅ Erfüllt | max-width 480px, Chip-Buttons, Bottom Navigation, Thumb-Zone-optimiert |
