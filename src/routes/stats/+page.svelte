@@ -7,6 +7,7 @@
 
 	export let data;
 	$: sessions = data.sessions || [];
+	$: userModules = data.userModules || [];
 
 	let range = 'woche'; // 'woche' | 'monat' | 'gesamt'
 
@@ -106,7 +107,7 @@ $: chartLabelEvery = range === 'gesamt' ? 1 : 1;
 	{:else}
 		<div class="session-list">
 			{#each filteredSessions.slice(0, 10) as s (s._id)}
-				<SessionCard session={s} />
+				<SessionCard session={s} modules={userModules} />
 			{/each}
 		</div>
 	{/if}
