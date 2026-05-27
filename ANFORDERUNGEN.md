@@ -14,7 +14,7 @@
 | SvelteKit mit Komponenten | ✅ Erfüllt | BottomNav.svelte, SessionCard.svelte, BarChart.svelte, BadgeCard.svelte, StreakDisplay.svelte, LevelProgress.svelte |
 | Persistenz mit MongoDB | ✅ Erfüllt | MongoDB Atlas, Collections: sessions, reflections |
 | Git/GitHub Versionsverwaltung | ✅ Erfüllt | Repository mit regelmässigen, sprechenden Commits |
-| App ist deployed | ✅ Erfüllt | Netlify, URL: https://clinquant-biscochitos-054278.netlify.app |
+| App ist deployed | ✅ Erfüllt | Netlify, URL: https://study-streak.netlify.app |
 
 #### Nutzerzentrierung & Bedienbarkeit (15 Punkte)
 
@@ -138,7 +138,7 @@ Die Note wird linear aus den erreichten Punkten (max. 100) berechnet:
 ## Mindestanforderungen (Voraussetzungen für Bestehen)
 
 - Mindestumfang gemäss Übungen erfüllt und dokumentiert
-- Online zugängliche App (https://clinquant-biscochitos-054278.netlify.app)
+- Online zugängliche App (https://study-streak.netlify.app)
 - GitHub-Repository mit Code und Dokumentation vollständig vorhanden und für Dozierende zugänglich (mmeisterhans, bkuehnis als Collaborators)
 - Durchführung einer Evaluation mit Auswertung gemäss Übungen
 - Einhaltung rechtlicher Rahmenbedingungen (u.a. Urheberrecht)
