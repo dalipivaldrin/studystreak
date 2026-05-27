@@ -143,7 +143,8 @@ Im Rahmen der Design-Sprint-Methodik wurden **8 möglichst unterschiedliche Vari
 **Gewählte Variante:** **Variante 2 – Preset-Tap (3 Taps)**
 
 **Skizzen:** 
-- ![Crazy 8s & Wireframes](docs/screenshots/07-prototypes-8variants.png)
+- ![Crazy 8s & Wireframes](docs/screenshots/08-prototypes-8variants.png)
+- ![User Flow Diagram](docs/screenshots/09-user-flow.png)
 
 Diese Skizze zeigt die 8 Varianten handgezeichnet sowie die ausgearbeitete Happy-Path-Skizze der gewählten Variante 2 – drei aufeinanderfolgende Mobile-Screens, jeder Pfeil entspricht einem Tap.
 
@@ -253,12 +254,13 @@ Prüfungstermine (/exams)
 
 | Screen | Beschreibung |
 |--------|-------------|
-| ![01-dashboard](./docs/screenshots/01-dashboard.png) | **Dashboard:** Streak-Pill im Header (z. B. 7 Tage), KPI-Kacheln (Sessions, Level, Wochenminuten), Fortschrittsbalken zum nächsten Level, Liste der letzten 5 Sessions mit Click-to-Edit. |
-| ![02-session-new](./docs/screenshots/02-session-new.png) | **Session erfassen:** Modul-Chips (farblich nach Modul), Dauer-Presets (15/30/45/60 min oder custom), optionaler Freitext für Thema, Fokus-Rating (1–5 Sterne), Speichern-Button. |
-| ![03-stats](./docs/screenshots/03-stats.png) | **Statistik-Seite:** Tab-Filter (Woche/Monat/Gesamt), Balkendiagramm Lernzeit/Tag (SVG, handgezeichnet), Modul-Aufschlüsselung (farbig mit Summen). |
-| ![04-reflection](./docs/screenshots/04-reflection.png) | **Tägliche Reflexion:** Stimmungs-Rating (1–5, interaktiv), zwei Freitextfelder, Speichern-Button, Erfolgsbestätigung. |
-| ![05-exam-form](./docs/screenshots/05-exam-form.png) | **Prüfungstermin-Formular:** Felder für Fach, Datum, Ort, Bemerkungen, Speichern-Button. |
-| ![06-exam-list](./docs/screenshots/06-exam-list.png) | **Prüfungsliste:** Bevorstehend (mit Dringlichkeitsfarbcodes: rot ≤ 3 Tage, orange ≤ 7 Tage, grün > 7 Tage) und Vergangen (archiviert), Edit & Delete pro Eintrag. |
+| ![01-dashboard](docs/screenshots/01-dashboard.png) | **Dashboard:** Streak-Pill im Header (z. B. 7 Tage), KPI-Kacheln (Sessions, Level, Wochenminuten), Fortschrittsbalken zum nächsten Level, Liste der letzten 5 Sessions mit Click-to-Edit. |
+| ![02-session-new](docs/screenshots/02-session-new.png) | **Session erfassen:** Modul-Chips (farblich nach Modul), Dauer-Presets (15/30/45/60 min oder custom), optionaler Freitext für Thema, Fokus-Rating (1–5 Sterne), Speichern-Button. |
+| ![03-stats](docs/screenshots/03-stats.png) | **Statistik-Seite:** Tab-Filter (Woche/Monat/Gesamt), Balkendiagramm Lernzeit/Tag (SVG), Modul-Aufschlüsselung (farbig mit Summen), Wochenziel-Fortschritt. |
+| ![04-badges](docs/screenshots/04-badges.png) | **Badge-Galerie:** 7 Auszeichnungen in 2x4-Grid, erreichte Badges farbig mit Beschreibung, gesperrte Badges grauskaliert mit Bedingungen. |
+| ![05-reflection](docs/screenshots/05-reflection.png) | **Tägliche Reflexion:** Stimmungs-Rating (1–5, interaktiv), zwei Freitextfelder ("Was lief gut?" / "Was will ich verbessern?"), Speichern-Button, Upsert pro Tag. |
+| ![06-exam-form](docs/screenshots/06-exam-form.png) | **Prüfungstermin-Formular:** Felder für Fach/Modul, Datum, Ort/Raum, Bemerkungen, Speichern-Button mit Validierung. |
+| ![07-exam-list](docs/screenshots/07-exam-list.png) | **Prüfungsliste:** Bevorstehend (mit Dringlichkeitsfarbcodes: rot ≤ 3 Tage, orange ≤ 7 Tage, grün > 7 Tage), Vergangen (archiviert), Edit & Delete pro Eintrag. |
 
 **Designentscheidungen**
 
@@ -845,7 +847,7 @@ Folgende Erweiterungen gehen über den geforderten Mindestumfang hinaus und wurd
 - 📄 [Ideenbeschreibung – Abgabe Woche 8](./docs/) (Valdrin Dalipi, FS 2026)
   - Kurze Problemanalyse, Zielgruppe, Lösungsidee (1–2 Seiten)
   
-- 🎨 [Sketch-Dokumentation – Crazy 8s & Wireframes](docs/screenshots/07-prototypes-8variants.png) (Abgabe Woche 9)
+- 🎨 [Sketch-Dokumentation – Crazy 8s & Wireframes](docs/screenshots/08-prototypes-8variants.png) (Abgabe Woche 9)
   - 8 unterschiedliche Varianten handgezeichnet
   - Ausgearbeitete Happy-Path-Skizze der gewählten Variante (3 Screens)
 
