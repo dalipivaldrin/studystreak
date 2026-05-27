@@ -159,9 +159,6 @@ Der Prototyp umfasst sechs verlinkte Screens: Home, Modul wählen, Dauer & Detai
   - **Statistik-Tab:** Balkendiagramm (handgezeichnetes SVG, keine externe Lib) mit Woche/Monat/Gesamt-Filter gibt schnelle Übersicht ohne tiefe Navigation
   - **Progressive Enhancement:** Alle CRUD-Aktionen funktionieren über SvelteKit Form Actions – auch ohne JavaScript bedienbar
   - **Offene Punkte für weiteres Prototyping:** Verhalten bei fehlendem Internet (Optimistic UI), eigener Erfolgs-Screen mit Badge-Animation, Wochenziel-Konfiguration pro Modul, eigene Module anlegen können
-
-#### 3.4.2. Umsetzung (Technik)
-
 - **Technologie-Stack:** SvelteKit 2 (Svelte 4) für Frontend & Backend; SvelteKit Form Actions mit Progressive Enhancement (`use:enhance`) für robuste CRUD-Abläufe; handgeschriebenes CSS mit CSS-Variablen für volle Designkontrolle.
 - **Tooling:** Figma (Mockup & Prototyping), VS Code mit GitHub Copilot, Vite als Build-Tool, ESM-Modules.
 - **Struktur & Komponenten:**
