@@ -47,7 +47,9 @@
     </header>
   {/if}
 
-  <slot />
+  <div class="app-content">
+    <slot />
+  </div>
 
   {#if showHeader}
     <BottomNav />
