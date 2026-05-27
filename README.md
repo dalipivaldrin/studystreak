@@ -133,9 +133,10 @@ Der Prototyp umfasst sechs verlinkte Screens: Home, Modul wählen, Dauer & Detai
 | ![05-exam-form](./docs/screenshots/05-exam-form.png) | **Formular zur Erfassung eines Moduls mit Prüfung/Klausur. Ermöglicht Auswahl zwischen Dauer-Presets (15/30/45/60 min) und optionalen Fokus-Einstellungen (1-5). |
 
 #### 3.4.2 Mockups & Prototypen
-|---------|-----------|
-| ![07-prototypes](./docs/screenshots/07-prototypes-8variants.png) | ⟹=Crazy 8s Varianten⟹= Acht unterschiedliche Lösungsvarianten zur Session-Erfassung, skizziert nach der Crazy-8s-Methode. Zeigt verschiedene Ansätze für die Benutzerinteraktion und Bedienbarkeit. |
-| ![Figma Prototyp](https://www.figma.com/proto/studystreak) | ⟹=Interaktiver Figma-Prototyp⟹= Verlinkter, funktionsfähiger Prototyp mit 6 Screens (Home, Modul wählen, Dauer & Details, Gesp eichert, Statistik, Reflexion). Diente als Entscheidungsgrundlage für die finale Implementierung. |
+| Screen | Beschreibung |
+|--------|-------------|
+| ![07-prototypes](./docs/screenshots/07-prototypes-8variants.png) | **Crazy 8s Varianten⟹= Acht unterschiedliche Lösungsvarianten zur Session-Erfassung, skizziert nach der Crazy-8s-Methode. Zeigt verschiedene Ansätze für die Benutzerinteraktion und Bedienbarkeit. |
+| ![Figma Prototyp](https://www.figma.com/proto/studystreak) | **Interaktiver Figma-Prototyp⟹= Verlinkter, funktionsfähiger Prototyp mit 6 Screens (Home, Modul wählen, Dauer & Details, Gesp eichert, Statistik, Reflexion). Diente als Entscheidungsgrundlage für die finale Implementierung. |
 
 #### 3.4.3 Artefakte & Dokumentation
 
