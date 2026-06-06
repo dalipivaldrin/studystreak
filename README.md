@@ -14,7 +14,7 @@
 > **Demo-Login:** offene Registrierung unter `/login` (eigenes Konto in < 1 Minute anlegen)
 > **Figma-Mockup:** [StudyStreak – Mockup Übung 10](https://www.figma.com/design/j1DknvMCZSoX9RgQLrpkPB/StudyStreak-–-Mockup-Übung-10?node-id=0-1&p=f&t=coYxhbbPBmVZmKVS-0)
 
-**Autor:** Valdrin Dalipi ([dalipval@students.zhaw.ch](mailto:dalipval@students.zhaw.ch)) · **Modul:** Prototyping (Übung 10–11) · **Studiengang:** Informatik / Wirtschaftsinformatik, ZHAW School of Engineering · **Semester:** FS 2026
+**Autor:** Valdrin Dalipi ([dalipval@students.zhaw.ch](mailto:dalipval@students.zhaw.ch)) · **Modul:** Prototyping (Übung 10–11) · **Studiengang:** Wirtschaftsinformatik Data Science, ZHAW School of Management and Law· **Semester:** FS 2026
 
 ---
 
