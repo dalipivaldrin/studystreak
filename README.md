@@ -1,5 +1,5 @@
-[README.md](https://github.com/user-attachments/files/28668085/README.md)
-# StudyStreak – Learning Habit Tracker
+[README.md](https://github.com/user-attachments/files/28668215/README.md)
+# Projektdokumentation – StudyStreak
 
 > **Lerngewohnheiten aufbauen statt Last-Minute-Cramming.** StudyStreak hilft ZHAW-Studierenden, Lernsessions in unter 30 Sekunden zu erfassen, ihren Fortschritt sichtbar zu machen und sich über Streaks, Level und Badges zu motivieren.
 
@@ -32,6 +32,8 @@
 5. [Projektorganisation](#5-projektorganisation)
 6. [KI-Deklaration](#6-ki-deklaration)
 7. [Anhang](#7-anhang)
+
+> **Hinweis:** Massgeblich sind die im **Unterricht** und auf **Moodle** kommunizierten Anforderungen.
 
 ---
 
@@ -629,6 +631,7 @@ Folgende Erweiterungen gehen über den geforderten Mindestumfang hinaus und wurd
 
 - **Beschreibung & Nutzen:** Session-Karten auf dem Dashboard sind direkt klickbar und führen zur Detail-/Bearbeitungsansicht. Reduziert Navigationsschritte für den häufigen Use Case „Session nachträglich korrigieren".
 - **Wo umgesetzt:** `src/routes/+page.svelte` (SessionCard als Link), `src/routes/sessions/[id]/+page.svelte` + `+page.server.js` (Edit/Delete-Actions).
+- **Referenz:** Dashboard-Screenshot (Kap. 3.4.1, `01-dashboard.png`); Massnahme in Kap. 3.5 (Issue #2).
 - **Aus Evaluation abgeleitet?** **Ja** – aus T2, als GitHub Issue #2 angelegt und sofort umgesetzt.
 
 ### 4.2 Statistik-Seite mit interaktiven Filtern und SVG-Diagramm
@@ -636,6 +639,7 @@ Folgende Erweiterungen gehen über den geforderten Mindestumfang hinaus und wurd
 - **Beschreibung & Nutzen:** Balkendiagramm der Lernzeit pro Tag/Woche, filterbar nach Woche/Monat/Gesamt, plus Modul-Aufschlüsselung mit Farbcodes. Ermöglicht das Erkennen von Lernmustern und das gezielte Fördern schwächerer Module.
 - **Wo umgesetzt:** `src/routes/stats/+page.svelte`, `src/lib/components/BarChart.svelte` (SVG, handgezeichnet), `src/routes/stats/+page.server.js` (Aggregation).
 - **Technische Highlights:** SVG ohne externe Charting-Lib, responsive Skalierung anhand der Daten-Maxima, Farbcodierung nach Modul.
+- **Referenz:** Statistik-Screenshot (Kap. 3.4.1, `03-stats.png`).
 - **Aus Evaluation abgeleitet?** Nein – von Anfang an Teil des Konzepts.
 
 ### 4.3 Gamification-Pipeline (Streak, Level, Badges)
@@ -643,18 +647,21 @@ Folgende Erweiterungen gehen über den geforderten Mindestumfang hinaus und wurd
 - **Beschreibung & Nutzen:** Eine dedizierte Logik-Bibliothek berechnet Streak (mit längster je erreichter Serie), Level (`floor(totalMinutes / 300) + 1`) und 7 regelbasierte Badges (siehe Tabelle in Kap. 3.4.2). Sichtbarer Fortschritt fördert das tägliche Zurückkehren zur App.
 - **Wo umgesetzt:** `src/lib/utils/gamification.js`; Frontend: `StreakDisplay.svelte`, `LevelProgress.svelte`, `BadgeCard.svelte`, `src/routes/badges/+page.svelte`.
 - **Edge-Cases:** korrektes Verhalten an der Tagesgrenze (Mitternacht) und an der Wochengrenze (Montag 00:00).
+- **Referenz:** Badge-Galerie-Screenshot (Kap. 3.4.1, `04-badges.png`); Badge-Tabelle in Kap. 3.4.2.
 - **Aus Evaluation abgeleitet?** Nein – von Anfang an geplant; positiv kommentiert.
 
 ### 4.4 Tägliche Reflexion (zweiter Workflow)
 
 - **Beschreibung & Nutzen:** Eigener Workflow mit Stimmungs-Rating (1–5) und zwei Freitextfeldern. Genau ein Eintrag pro Tag (Upsert mit `dateKey` als natürlichem Schlüssel je Nutzer). Ergänzt das Session-Logging um eine qualitative Dimension.
 - **Wo umgesetzt:** `src/routes/reflection/+page.svelte` + `+page.server.js`; Collection `reflections` (Upsert auf `{ dateKey, userId }`).
+- **Referenz:** Reflexions-Screenshot (Kap. 3.4.1, `05-reflection.png`).
 - **Aus Evaluation abgeleitet?** Nein – von Anfang an als zweiter Workflow definiert.
 
 ### 4.5 Prüfungstermin-Verwaltung (Exams)
 
 - **Beschreibung & Nutzen:** Route `/exams` zur Verwaltung von Prüfungsterminen (Fach, Datum, Ort, Bemerkungen). Das Dashboard zeigt die nächsten 3 Prüfungen als farbcodierte Dringlichkeitskarten (rot ≤ 3 Tage, orange ≤ 7 Tage, grün > 7 Tage). Vergangene Prüfungen werden archiviert.
 - **Wo umgesetzt:** `src/routes/exams/+page.svelte` + `+page.server.js` (CRUD); Dashboard-Vorschau in `src/routes/+page.server.js`; Collection `exams`.
+- **Referenz:** Prüfungs-Screenshots (Kap. 3.4.1, `06-exam-form.png`, `07-exam-list.png`).
 - **Aus Evaluation abgeleitet?** Nein – ergänzt das Session-Logging um Zielorientierung.
 
 ### 4.6 Serverseitige Validierung
@@ -662,25 +669,29 @@ Folgende Erweiterungen gehen über den geforderten Mindestumfang hinaus und wurd
 - **Beschreibung & Nutzen:** Alle Formulare werden serverseitig validiert (Pflichtfelder, Längenlimits, Wertebereiche, Datumsplausibilität). Feldweise Fehleranzeige mit Erhalt der eingegebenen Werte.
 - **Wo umgesetzt:** `src/lib/utils/validation.js` (`validateSession`, `validateReflection`), Prüfungs-Validierung direkt in der Form Action.
 - **Regeln:** siehe Validierungsblock in Kap. 3.4.2 (Dauer 5–600 min, Thema ≤ 200, Session-Notizen ≤ 1000, Reflexionstexte ≤ 500 Zeichen).
+- **Referenz:** Validierungsblock in Kap. 3.4.2.
 - **Aus Evaluation abgeleitet?** Nein – technische Qualitätsentscheidung.
 
 ### 4.7 Progressive Enhancement (Form Actions ohne JavaScript)
 
 - **Beschreibung & Nutzen:** Alle CRUD-Aktionen funktionieren vollständig über SvelteKit Form Actions – auch ohne JavaScript. Mit `use:enhance` wird das UI optimistisch aktualisiert, wenn JavaScript verfügbar ist.
 - **Wo umgesetzt:** `use:enhance` in allen Formularen; Form Actions in allen `+page.server.js`-Dateien.
+- **Referenz:** Trade-off Nr. 3 in Kap. 3.4.2.
 - **Aus Evaluation abgeleitet?** Nein – technische Designentscheidung für Robustheit.
 
 ### 4.8 Eigene Module / ZHAW-Modulkatalog
 
 - **Beschreibung & Nutzen:** Über `/modules` legen Studierende **eigene Fächer** an, die anschliessend beim Session-Erfassen als Chips wählbar sind. Ein hinterlegter **ZHAW-Modulkatalog** (`src/lib/modulkatalog.js`) liefert Studiengänge und Fächer als Auswahlhilfe. Damit ist die App nicht mehr auf vier vordefinierte Module beschränkt.
 - **Wo umgesetzt:** `src/routes/modules/+page.svelte` + `+page.server.js` (CRUD, auth-geschützt), `src/routes/api/modules/+server.js` (JSON-Endpoint), Collection `modules` (pro `userId`).
-- **Status:** ✅ Umgesetzt (über den ursprünglichen Mindestumfang hinaus).
+- **Referenz:** Route `/modules` in der Informationsarchitektur (Kap. 3.4.1); Modulkatalog `src/lib/modulkatalog.js`.
+- **Aus Evaluation abgeleitet?** Nein – eigenständige Erweiterung über den Mindestumfang hinaus.
 
 ### 4.9 Authentifizierung & Mehrbenutzer-Fähigkeit
 
 - **Beschreibung & Nutzen:** Registrierung und Login mit E-Mail/Passwort. Passwörter werden gehasht (SHA-256), Sessions über ein zufälliges Token in einem HttpOnly-Cookie verwaltet (30 Tage gültig). Alle Inhalte sind pro Nutzer isoliert (`userId`-Filter in jeder Query). Geschützte Routen leiten ohne gültige Session auf `/login` um.
 - **Wo umgesetzt:** `src/lib/server/auth.js` (registerUser, loginUser, createSession, validateSession, deleteSession), `src/routes/login/+page.server.js` (Actions: register, login, logout); Collections `users` und `auth_sessions`.
-- **Status:** ✅ Umgesetzt. Hinweis: SHA-256 ist für die Prototyping-Phase bewusst einfach gehalten; produktiv wäre ein dedizierter Passwort-Hash (bcrypt/argon2) angebracht.
+- **Referenz:** Login-Screen der Live-App (`/login`); Informationsarchitektur (Kap. 3.4.1); ER-Diagramm (Kap. 3.4.2).
+- **Aus Evaluation abgeleitet?** Nein – eigenständige Erweiterung. *Hinweis: SHA-256 ist bewusst einfach gehalten; produktiv wäre bcrypt/argon2 angebracht.*
 
 ---
 
@@ -717,10 +728,9 @@ Folgende Erweiterungen gehen über den geforderten Mindestumfang hinaus und wurd
 
 ### 6.1 KI-Tools
 
+**Eingesetzte Tools:**
 - **Claude** (Anthropic) – Code-Generierung, Dokumentation, Sparring
 - **GitHub Copilot** (in VS Code) – Code-Vervollständigung, Snippets
-
-### 6.2 Prompt-Vorgehen
 
 **Zweck & Umfang des KI-Einsatzes:**
 
@@ -742,11 +752,17 @@ Folgende Erweiterungen gehen über den geforderten Mindestumfang hinaus und wurd
 
 *Technisch (Autor mit KI-Unterstützung):* Architektur, Datenmodell und Trennung von Business-Logic und UI durch den Autor; KI lieferte Vorschläge, die der Autor gegengelesen, angepasst, integriert und manuell getestet hat (inkl. Edge-Case-Tests für Streak und Connection-Pooling); Deployment (MongoDB Atlas, Netlify, Umgebungsvariablen) durch den Autor.
 
+### 6.2 Prompt-Vorgehen
+
+**Allgemeines Vorgehen:** Kontext mitgeben (Aufgabenstellung, Mockup, bisherige Entscheide), konkrete statt offene Anfragen stellen, Output kritisch prüfen, Fehler korrigieren und iterieren.
+
 **Konkrete Beispiele:**
 
 1. **Streak-Berechnung (kritischer Bug):** Ein erster KI-Vorschlag verglich Datumswerte direkt (`lastSessionDate > yesterday`) und scheiterte an der Mitternacht-Grenze. Der Autor erkannte den Fehler; korrigiert wurde auf einen Vergleich auf Tagesschlüssel-Ebene (`YYYY-MM-DD`).
 2. **CSS-Responsive-Breakpoints:** Autor-Vorgabe „Mobile-first, max-width 480 px, Daumen-Zone-freundlich"; KI schlug CSS-Variablen und Flexbox-Grids vor, der Autor verfeinerte Lesbarkeit und Schriftgrössen.
 3. **README-Dokumentation:** Autor lieferte Rohdaten (Testbeobachtungen, Screenshots); KI strukturierte Tabellen und Klartext; der Autor prüfte Fakten und Terminologie gegen den Code.
+
+**Urheberrecht & Quellen:** Sämtlicher Code und das gesamte Design wurden vom Autor erstellt bzw. überarbeitet; KI-Ausgaben wurden geprüft, angepasst und integriert. Es wurden **keine fremden, urheberrechtlich geschützten Inhalte** (Bilder, Texte, Schriftarten) übernommen. Eingesetzte Open-Source-Bibliotheken (SvelteKit, `mongodb`-Driver, `@sveltejs/adapter-netlify`, Vite) werden gemäss ihren Lizenzen genutzt; verwendete Symbole sind Unicode-Emojis. Die Verantwortung für Korrektheit und Urheberrecht liegt beim Autor.
 
 ### 6.3 Reflexion
 
@@ -778,7 +794,7 @@ Folgende Erweiterungen gehen über den geforderten Mindestumfang hinaus und wurd
 - 📱 Screenshots unter `docs/screenshots/` – 7 App-Screens (01–07) + 2 Sketch-Artefakte (08–09)
 
 **Video-Walkthrough**
-- 🎬 **Video-Walkthrough** – ca. 7 Min. (6:58); erläutert das Vorgehen und demonstriert alle Workflows (Login, Session erfassen/bearbeiten, Statistik, Reflexion, Prüfungen, Module). Wird als **separate Videodatei** über Moodle eingereicht (nicht im Repository enthalten).
+- 🎬 **Video-Walkthrough** – kommentierter Walkthrough, ca. 7 Min. (6:58); demonstriert vollständig alle Workflows (Login, Session erfassen/bearbeiten, Statistik, Reflexion, Prüfungen, Module). Fokus auf der Funktionalität (ohne Code/Entstehungs-Vorgehen, gemäss Aufgabenstellung). Wird als **separate Videodatei** über Moodle eingereicht (nicht im Repository enthalten).
 
 **Dokumentation**
 - 📋 `README.md` – diese Datei (vollständige Projektdokumentation nach Vorlage)
@@ -791,9 +807,16 @@ Folgende Erweiterungen gehen über den geforderten Mindestumfang hinaus und wurd
 - [Netlify Adapter für SvelteKit](https://github.com/sveltejs/kit/tree/master/packages/adapter-netlify)
 - [MDN: CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*)
 
+**Quellen, Lizenzen & Urheberrecht**
+- **Dokumentationsvorlage:** offizielle Moodle-Vorlage des Moduls Prototyping (Kapitelstruktur übernommen).
+- **Code & Design:** vollständig vom Autor erstellt; keine fremden, urheberrechtlich geschützten Assets (Bilder, Texte, Schriftarten) verwendet.
+- **Open-Source-Bibliotheken (gemäss Lizenz):** SvelteKit, `mongodb`-Driver, `@sveltejs/adapter-netlify`, Vite.
+- **Symbole:** Unicode-Emojis (keine lizenzpflichtigen Icon-Sets).
+- **Screenshots:** eigene Aufnahmen der selbst entwickelten App.
+
 ### Anmerkungen für Dozierende
 
-**Video-Walkthrough:** wird als separate Videodatei über Moodle eingereicht (bis Abgabefrist), Dauer ca. 7 Minuten (6:58); erläutert das Vorgehen und zeigt alle Workflows (Login, Session erfassen/bearbeiten, Statistik, Reflexion, Prüfungen, Module).
+**Video-Walkthrough:** wird als separate Videodatei über Moodle eingereicht (bis Abgabefrist), Dauer ca. 7 Minuten (6:58); kommentierter Walkthrough, der sämtliche Workflows vollständig demonstriert (Login, Session erfassen/bearbeiten, Statistik, Reflexion, Prüfungen, Module). Fokus auf der Funktionalität, ohne Code/Entstehungs-Vorgehen (gemäss Aufgabenstellung).
 
 **Authentifizierung:** Die App nutzt ein eigenes E-Mail/Passwort-Login mit Cookie-Session. Ein Test-Konto lässt sich in unter einer Minute über `/login` registrieren (offene Registrierung). SHA-256 ist für die Prototyping-Phase bewusst einfach gehalten.
 
