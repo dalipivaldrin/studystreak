@@ -1,7 +1,13 @@
-[README.md](https://github.com/user-attachments/files/28668038/README.md)
+[README.md](https://github.com/user-attachments/files/28668085/README.md)
 # StudyStreak – Learning Habit Tracker
 
 > **Lerngewohnheiten aufbauen statt Last-Minute-Cramming.** StudyStreak hilft ZHAW-Studierenden, Lernsessions in unter 30 Sekunden zu erfassen, ihren Fortschritt sichtbar zu machen und sich über Streaks, Level und Badges zu motivieren.
+
+![SvelteKit](https://img.shields.io/badge/SvelteKit-2-FF3E00?logo=svelte&logoColor=white)
+![Svelte](https://img.shields.io/badge/Svelte-4-FF3E00?logo=svelte&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-Atlas%20M0-47A248?logo=mongodb&logoColor=white)
+![Netlify](https://img.shields.io/badge/Deploy-Netlify-00C7B7?logo=netlify&logoColor=white)
+![Vite](https://img.shields.io/badge/Build-Vite-646CFF?logo=vite&logoColor=white)
 
 > **Live-Demo:** https://study-streak.netlify.app
 > **Repository:** https://github.com/dalipivaldrin/studystreak
@@ -772,7 +778,7 @@ Folgende Erweiterungen gehen über den geforderten Mindestumfang hinaus und wurd
 - 📱 Screenshots unter `docs/screenshots/` – 7 App-Screens (01–07) + 2 Sketch-Artefakte (08–09)
 
 **Video-Walkthrough**
-- 🎬 [Video-Walkthrough ansehen](LINK-BIS-ABGABE-EINFÜGEN) – ca. 7 Min. (6:58); erläutert das Vorgehen und demonstriert alle Workflows (Login, Session erfassen/bearbeiten, Statistik, Reflexion, Prüfungen, Module). *Wird separat bis zur Abgabefrist eingereicht; Link hier einfügen.*
+- 🎬 **Video-Walkthrough** – ca. 7 Min. (6:58); erläutert das Vorgehen und demonstriert alle Workflows (Login, Session erfassen/bearbeiten, Statistik, Reflexion, Prüfungen, Module). Wird als **separate Videodatei** über Moodle eingereicht (nicht im Repository enthalten).
 
 **Dokumentation**
 - 📋 `README.md` – diese Datei (vollständige Projektdokumentation nach Vorlage)
@@ -787,7 +793,7 @@ Folgende Erweiterungen gehen über den geforderten Mindestumfang hinaus und wurd
 
 ### Anmerkungen für Dozierende
 
-**Video-Walkthrough:** wird separat eingereicht (bis Abgabefrist), Dauer ca. 7 Minuten (6:58); erläutert das Vorgehen und zeigt alle Workflows (Login, Session erfassen/bearbeiten, Statistik, Reflexion, Prüfungen, Module).
+**Video-Walkthrough:** wird als separate Videodatei über Moodle eingereicht (bis Abgabefrist), Dauer ca. 7 Minuten (6:58); erläutert das Vorgehen und zeigt alle Workflows (Login, Session erfassen/bearbeiten, Statistik, Reflexion, Prüfungen, Module).
 
 **Authentifizierung:** Die App nutzt ein eigenes E-Mail/Passwort-Login mit Cookie-Session. Ein Test-Konto lässt sich in unter einer Minute über `/login` registrieren (offene Registrierung). SHA-256 ist für die Prototyping-Phase bewusst einfach gehalten.
 
