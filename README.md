@@ -1,4 +1,4 @@
-[README.md](https://github.com/user-attachments/files/28667937/README.md)
+[README.md](https://github.com/user-attachments/files/28668038/README.md)
 # StudyStreak – Learning Habit Tracker
 
 > **Lerngewohnheiten aufbauen statt Last-Minute-Cramming.** StudyStreak hilft ZHAW-Studierenden, Lernsessions in unter 30 Sekunden zu erfassen, ihren Fortschritt sichtbar zu machen und sich über Streaks, Level und Badges zu motivieren.
@@ -772,7 +772,7 @@ Folgende Erweiterungen gehen über den geforderten Mindestumfang hinaus und wurd
 - 📱 Screenshots unter `docs/screenshots/` – 7 App-Screens (01–07) + 2 Sketch-Artefakte (08–09)
 
 **Video-Walkthrough**
-- 🎬 [Video-Walkthrough ansehen](LINK-BIS-ABGABE-EINFÜGEN) – ca. 5 Min., demonstriert alle Workflows (Login, Session erfassen/bearbeiten, Statistik, Reflexion, Prüfungen, Module). *Wird separat bis zur Abgabefrist eingereicht; Link hier einfügen.*
+- 🎬 [Video-Walkthrough ansehen](LINK-BIS-ABGABE-EINFÜGEN) – ca. 7 Min. (6:58); erläutert das Vorgehen und demonstriert alle Workflows (Login, Session erfassen/bearbeiten, Statistik, Reflexion, Prüfungen, Module). *Wird separat bis zur Abgabefrist eingereicht; Link hier einfügen.*
 
 **Dokumentation**
 - 📋 `README.md` – diese Datei (vollständige Projektdokumentation nach Vorlage)
@@ -787,7 +787,7 @@ Folgende Erweiterungen gehen über den geforderten Mindestumfang hinaus und wurd
 
 ### Anmerkungen für Dozierende
 
-**Video-Walkthrough:** wird separat eingereicht (bis Abgabefrist), Dauer ca. 5 Minuten; zeigt alle Workflows (Login, Session erfassen/bearbeiten, Statistik, Reflexion, Prüfungen, Module).
+**Video-Walkthrough:** wird separat eingereicht (bis Abgabefrist), Dauer ca. 7 Minuten (6:58); erläutert das Vorgehen und zeigt alle Workflows (Login, Session erfassen/bearbeiten, Statistik, Reflexion, Prüfungen, Module).
 
 **Authentifizierung:** Die App nutzt ein eigenes E-Mail/Passwort-Login mit Cookie-Session. Ein Test-Konto lässt sich in unter einer Minute über `/login` registrieren (offene Registrierung). SHA-256 ist für die Prototyping-Phase bewusst einfach gehalten.
 
