@@ -1,20 +1,14 @@
-[README.md](https://github.com/user-attachments/files/28667292/README.md)
+[README.md](https://github.com/user-attachments/files/28667937/README.md)
 # StudyStreak – Learning Habit Tracker
 
 > **Lerngewohnheiten aufbauen statt Last-Minute-Cramming.** StudyStreak hilft ZHAW-Studierenden, Lernsessions in unter 30 Sekunden zu erfassen, ihren Fortschritt sichtbar zu machen und sich über Streaks, Level und Badges zu motivieren.
-
-![SvelteKit](https://img.shields.io/badge/SvelteKit-2-FF3E00?logo=svelte&logoColor=white)
-![Svelte](https://img.shields.io/badge/Svelte-4-FF3E00?logo=svelte&logoColor=white)
-![MongoDB](https://img.shields.io/badge/MongoDB-Atlas%20M0-47A248?logo=mongodb&logoColor=white)
-![Netlify](https://img.shields.io/badge/Deploy-Netlify-00C7B7?logo=netlify&logoColor=white)
-![Vite](https://img.shields.io/badge/Build-Vite-646CFF?logo=vite&logoColor=white)
 
 > **Live-Demo:** https://study-streak.netlify.app
 > **Repository:** https://github.com/dalipivaldrin/studystreak
 > **Demo-Login:** offene Registrierung unter `/login` (eigenes Konto in < 1 Minute anlegen)
 > **Figma-Mockup:** [StudyStreak – Mockup Übung 10](https://www.figma.com/design/j1DknvMCZSoX9RgQLrpkPB/StudyStreak-–-Mockup-Übung-10?node-id=0-1&p=f&t=coYxhbbPBmVZmKVS-0)
 
-**Autor:** Valdrin Dalipi ([dalipval@students.zhaw.ch](mailto:dalipval@students.zhaw.ch)) · **Modul:** Prototyping (Übung 10–11) · **Studiengang:** Wirtschaftsinformatik Data Science, ZHAW School of Management and Law· **Semester:** FS 2026
+**Autor:** Valdrin Dalipi ([dalipval@students.zhaw.ch](mailto:dalipval@students.zhaw.ch)) · **Modul:** Prototyping (Übung 10–11) · **Studiengang:** Wirtschaftsinformatik Data Science, ZHAW School of Management and Law · **Semester:** FS 2026
 
 ---
 
@@ -777,6 +771,9 @@ Folgende Erweiterungen gehen über den geforderten Mindestumfang hinaus und wurd
 - 💾 [GitHub Repository](https://github.com/dalipivaldrin/studystreak) – kompletter Quellcode mit Git-History
 - 📱 Screenshots unter `docs/screenshots/` – 7 App-Screens (01–07) + 2 Sketch-Artefakte (08–09)
 
+**Video-Walkthrough**
+- 🎬 [Video-Walkthrough ansehen](LINK-BIS-ABGABE-EINFÜGEN) – ca. 5 Min., demonstriert alle Workflows (Login, Session erfassen/bearbeiten, Statistik, Reflexion, Prüfungen, Module). *Wird separat bis zur Abgabefrist eingereicht; Link hier einfügen.*
+
 **Dokumentation**
 - 📋 `README.md` – diese Datei (vollständige Projektdokumentation nach Vorlage)
 - 📄 `CLAUDE.md` – Projektkontext und Anforderungen (interne Referenz)
@@ -805,4 +802,4 @@ Folgende Erweiterungen gehen über den geforderten Mindestumfang hinaus und wurd
 ---
 
 **Projektstart:** Februar 2026 · **Fertigstellung:** Mai 2026 · **Modul:** Prototyping (Übung 10–11)
-**Hochschule:** ZHAW – School of Engineering · **Verfasser:** Valdrin Dalipi
+**Hochschule:** ZHAW – School of Management and Law · **Verfasser:** Valdrin Dalipi
